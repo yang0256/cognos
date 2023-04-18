@@ -1,0 +1,2403 @@
+
+ 
+Course outline 
+• What is IBM Cognos Analytics - Reporting? 
+• Dimensionally modeled relational data 
+• Use personal data sources and data modules 
+• Examine list reports 
+• Aggregate fact data 
+• Multiple facts and repeated information 
+• Add repeated information to reports 
+• Create crosstab reports 
+• Create complex crosstab reports 
+• Work with crosstab data 
+• Create discontinuous crosstab reports 
+• Create visualization reports 
+• Focus reports using filters 
+• Focus reports using prompts 
+• Use calculations 
+• Customize reports with conditional formatting 
+• Drill-through definitions 
+• Enhance report layout 
+• Use additional report-building techniques 
+ 
+
+Bursting a report allows distribution of its contents to various recipients. Bursting is the process of running a report once, and then dividing the results for users who each view a subset of the data. For example, salespeople in different regions need a report that shows the sales target for their country or region. You use the bursting feature to send each salesperson only the information they need. You can distribute burst reports by email or save them to a folder for viewing in the IBM Cognos Analytics portal. You can learn more about bursting reports in the IBM Cognos Analytics: Author Reports Advanced (V11.1.x) course. 
+Share and Embed buttons are available for content items such as reports. These buttons create URLs that open content items directly in a web browser or embed the content items in a custom web page. 
+You can create custom URLs that open or run IBM Cognos Analytics content. This feature extends the sharing and embedding feature by giving you more control over how the content objects are opened or run. 
+Interactive filtering 
+Report consumers can create filters directly on the report output to better understand the report context, and modify views without needing a report author to make the changes. 
+In the application toolbar of the interactive viewer, a filter icon is available that opens the filter panel. This panel shows all the filters that the report consumer created in the report output. When a data container is selected, filters that apply to the selected data container are highlighted. Report consumers can edit or delete filters directly within the panel. 
+Report consumers can resize the filter panel and pin or unpin the panel, depending on the screen resolution.  
+Report authors can make a filter visible to report consumers so that they can interact with it by using the interactive filter panel. 
+Working with reports 
+IBM Cognos Analytics includes report templates and color themes to choose when creating a report. The templates and themes are stored in the Templates.zip deployment file. After the file is deployed, the templates and themes are located in the Templates folder in Team content. 
+You can create your own report templates and themes, and make them available to other users. Save the templates in the Templates folder in Team content, and save themes in the Style Reference Reports folder in the Templates folder. When you create a new report, any report or theme that is saved in the Templates folder appears in the list of templates or themes. 
+To convert a report to a template click Save > Convert to Template on the Application bar. 
+You can open an existing report, make changes and then save or save as a new report with a new name. To access existing reports, browse to them in either Team content or My content. To edit them, click the More icon (vertical ellipsis to the right of the report name). 
+As part of the report creation process, you can: 
+• Choose from a selection of templates. 
+• Choose from a selection of data containers for presenting your report, such as list, crosstab, or visualization. You can include a combination of data containers in a single report. 
+• Add metadata items from a package or a data module to the data containers by using the Source tab of the Data pane. Data items can be added from one or more packages in the same report and be accessed from a data module. Data items from a package and a data module cannot be combined in the same report. 
+• Add data items into your report that exist in your query, by using the Data Items tab under Insertable objects. 
+• Add various report objects into your report, such as Block, Text item, Table, Prompt, and HTML item, by using the Toolbox tab. 
+• Use the navigation menu to browse to individual report and prompt pages by using the Pages folder. 
+• Use the navigation menu browse to the queries that make up the report, by using the Queries folder. 
+• Modify report objects and data item properties by using the Properties pane. 
+• Work in different authoring modes. 
+• Author by using the metadata items from the report, such as column or row labels, in Page design mode. 
+Country 
+Revenue 
+<Country> 
+<Revenue> 
+• Author by using the actual data values in the report, in Page preview mode. 
+Country 
+Revenue 
+Portugal 
+$34, 675, 662.43 
+• Interactively view query and rendering performance on report objects in a report by enabling the included performance details option in the run options for the report. 
+
+Activity: Create a simple list report 
+
+Create a list report that includes attribute and measure data items. The attribute data items need to be sorted by the measure values in descending order, and the measure values need to be displayed with a meaningful format. For example, revenue values can be formatted as currency. 
+In this activity, you will: 
+• Create a report template. 
+• Add a data source. 
+• Add data to the list. 
+• View the data items in the query. 
+• Remove a column. 
+• Format and sort the data. 
+Choose a report template. 
+You should use Internet Explorer for all the Activities in this course.  
+• In Windows, click Start > Internet Explorer. 
+• If you are prompted to Set up Internet Explorer 11, click Use recommended security and compatibility settings, and then click OK. 
+• In Internet Explorer, navigate to http://localhost:9300/bi/ and then log in to IBM Cognos Analytics using the following credentials: 
+• Username: brettonf 
+• Password: Education1 
+The Welcome to IBM Cognos Analytics page appears. This page appears automatically if security is not implemented. 
+• From the Side bar on the left, click New , and then click Report. 
+• From the Templates and themes page, click Blank, and then click OK. 
+Add a data source. 
+• From the Insertable objects pane on the left, click Select sources . 
+• On the Open file dialog window, browse in the Team content folder to Samples > Models > GO Data warehouse (query), and then click Open. 
+• From the Application bar, click the Page design list , and then from the list, click Page preview. 
+• In the work area, click Add . 
+A set of data container choices appears. 
+• Click List, and then click OK to accept the default query name. 
+Add data to the list. 
+• From the Insertable objects pane, expand Sales and Marketing (query) > 
+Sales (query) > Employee by region query subject . 
+• Double-click the Country query item to add it to the list report object. 
+The list report object now has one column. 
+• Double-click City to add it to the list report object. 
+City is automatically added to the end of the list. 
+• On the Insertable objects pane, right-click Last name, and then click Properties. 
+The Properties dialog box appears, with details about the item. 
+• Click Close.  
+• Right-click City, and then click Lineage. 
+Lineage information traces the metadata of a data item back through the package and the data sources that are used by the package. Lineage displays any data item filters that the data modeler added or defined in the data model. Viewing lineage information ensures that you add the correct data items to a report. For example, you can view the lineage information of a model calculation to see how it was created. 
+Lineage for data items can also be viewed in the interactive viewer after running a report. To do this you would click the data item, and then from the on-demand toolbar, click Explore, and then click Lineage, noting that this can only be done in a saved report. 
+• Click the X at the upper right of the window to close it. 
+• Click First name, and then Ctrl+click Last name, Employee level and Position name. 
+• Right-click Position name, and then click Insert. 
+The items are added to the list in the order in which they are selected. 
+• If the Properties pane is open on the right, from the Application bar, click Show 
+Properties  to close it and create more room on your report canvas. 
+The Properties icon works in toggle fashion to open and close the Properties pane. 
+• From Insertable objects, expand the Sales fact query subject, and then drag Revenue to add it to the end of the list (you should see a flashing black bar inside of a white bar, indicating the correct drop zone). 
+
+If you place the data item outside of the list, a message opens stating that IBM Cognos Analytics - Reporting created a singleton. You want the new data item to be added to the end of the list. If a singleton is created, undo your last action, and then redo the previous step. 
+You would now like to modify the order of the columns. 
+• From the Application bar, click Show properties . 
+• In the work area, click the data for Last name (not the header) to select the column body, then drag it to the left of the First name list column body. 
+Make sure that the column body is selected by clicking any one of the cells in the column, not the column header. To check to see what element of the report is selected, check the title bar of the Properties pane. 
+A flashing black bar appears when the item is over a drop zone. A section of the results appear as follows: 
+
+You will now view the data items in the query. 
+View the data items in the query. 
+• From the Insertable objects pane, click Data items , and then click Query1. 
+The data items that you added to the list appear under Query1. The names of the data items correspond to the column titles in the report layout. 
+• From, the navigation menu, click Report  to expand the Report list menu. 
+
+• Click Query1. 
+The Data Items pane is displayed in the middle section. 
+
+You want to view information about a data item, including how it retrieves data from the data source. 
+• From the Data Items pane, double-click Position name. 
+The Data item expression dialog box opens. 
+
+• Examine the Expression Definition. 
+The Data item expression dialog box displays the path to where the data item exists including the query item name, query subject name, and namespace name. 
+• Click OK. 
+• From the Report navigation menu, click Pages > Page1. 
+
+This action returns you to the report. 
+Remove a column. 
+• In the list report object, click a data cell for Employee level (not the header), and then from the on-demand toolbar, click Cut . 
+The column is removed from the list. 
+• From the navigation menu, click Report > Queries > Query1. 
+The Employee level data item that you cut still appears in the Data Items pane. Although you removed it from the report layout in the Pages view, the data item is not removed from the query. Keeping the data item in the query can be useful for tasks such as creating a calculation. Examples of where you would keep a data item in the query, but remove it from the report layout include: creating an expression based on the data item, sorting, or formatting data in the list by using the data item. 
+• From the navigation menu, click Report > Pages > Page1 to return to the work area. 
+• From the Application bar, click Undo . 
+The Employee level column is added back to the list. 
+• Ensure that the Employee level column is still selected, and then from the on-demand toolbar click Delete . 
+Employee level is once again removed from the report layout. 
+• From the navigation menu, click Report > Queries > Query1. 
+This time the Employee level data item is removed from the query and no longer appears in the Data Items pane. 
+Format and sort the data. 
+• From the navigation menu, navigate back to Page1. 
+• In the list, click a data cell for Revenue, in the list column body (not the column title). 
+The Revenue cells are highlighted to show that they are selected. The Properties pane shows the properties for this column. 
+• From the on-demand toolbar, click Sort , and then click Descending. 
+Values for each of the attributes are sorted in descending order based on the values of the measure data item. 
+• With the Revenue column still selected, from the on-demand toolbar, click 
+Data format . 
+• In the Data format dialog box, in the Format type list, click Currency. 
+• Under Properties, in the Currency property, scroll down the list, and then click $ (USD) - United States of America, dollar. 
+The values for the measure data item are displayed in American dollars. By default, this format uses a comma as a Thousands separator, and two decimal places. The specific format that you choose should be based on the nature of the measure data item that is used in the report. For example, a measure such as revenue would be formatted as currency. A measure such as percentage of gross revenue would be formatted as a percentage. 
+• Click OK to close the Data format dialog box. 
+• From the Application bar, click Run options , and then click Run HTML. 
+A new browser tab opens with the list report rendered and the measure data items are sorted in descending order, and are formatted in currency. 
+
+• At the bottom of the page, click Page down several times to browse to some of the additional pages of the report. 
+• In your browser, close the rendered New report tab. 
+• Click the Country column header, from the on-demand toolbar, click Filters , and then click Edit filters. 
+• In the Filters - Query1 dialog box, click Add , in the Create filter dialog box, ensure that Custom based on data item is selected, and then click OK. 
+• In the Find box, point to Brazil, and then click the plus sign  beside Brazil to add the item to the pane on the right. 
+• Repeat for Germany, ensure that the Keep these values option is selected, and then click OK. 
+• Click OK to close the Filters - Query1 dialog box. 
+• Run the report again in HTML. 
+The report now only contains data for Brazil and Germany. 
+ 
+• Click Open. 
+The report renders in Microsoft Excel format, and includes all of the formatting and filters previously applied. 
+• Close Microsoft Excel, and then close the browser tab that includes the rendered report. 
+• At the top of the page, in the middle of the Application bar, expand the Switcher menu list (the down arrow next to New report*). 
+The result appears as follows: 
+
+• Leave IBM Cognos Analytics open for the next activity. 
+Dimensionally modeled relational data 
+Dimensionally modeled relational metadata is data that is taken from a relational source and modeled as a star schema. Hierarchies are applied to allow for drill behavior. 
+Dimensionally modeled relational data extends dimensional capabilities (such as drilldown) to relational sources. 
+With dimensional analysis, your corporate data is organized in the way you think about your business so that you spend more time on analysis, rather than on data retrieval. 
+Only dimensional models allow drill up and drill down behavior in analyses and reports. 
+
+Activity: Use a dimensionally modeled relational data source 
+
+Most of the reports in this course use relational data sources. However this activity demonstrates how to create a report with a dimensional data source. It provides an overall view of the types of data sources that can be accessed in IBM Cognos Analytics. 
+Explore a dimensionally modeled relational data source and create a report that enables navigation to a lower level of detail. 
+In this activity, you will: 
+• Create a blank report. 
+• Examine the data source. 
+• Add data items to the list. 
+• Drill up and drill down. 
+Create a blank report. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• From the Side bar, click New, and then click Report. 
+• Select a Blank template, and then click OK. 
+• From the Sources tab , click Add a source , navigate to: 
+Team content/Samples/Models/GO data warehouse (analysis), and then click Open. 
+The Sources tab on the left displays the folders available in the package.  
+• On the Sources tab, click Options . 
+A set of actions specific to working with a dimensional data source are available. 
+• Click Options again to close the menu. 
+• In the center of the work area, click Add , click List, and then click OK to accept the default options in the Object and query name dialog box. 
+• On the Sources tab, expand Sales and Marketing (analysis). 
+The folders in the Sales and Marketing (analysis) folder appear. 
+
+Sales folder. 
+ and regular dimensions  are displayed 
+in the data tree. The presence of these objects indicates that you are working with a dimensional data source. 
+Examine the data source. 
+• Expand the Sales fact measures query subject. 
+Review the measures  available in the Sales fact measures query. 
+
+This hierarchy contains a Members folder and five levels. 
+Region level. 
+The Members folder and the Region code query item  appear in the data tree. 
+• Under Region, expand the Members folder (under Region) to see the five sales regions. 
+
+The member values are displayed within the Members folder. 
+Add data items to the list. 
+Before adding data items to the list, you want to ensure that summary rows do not automatically appear in the report. 
+• Under Sources, expand the Time dimension, Time hierarchy, Year level, and Members folder. 
+• Drag 2011 to the list report object in the work area that displays Drop items here to create new columns. 
+Notice how you can add specific members to a report, instead of adding all years first, and then filtering to include only the desired years, as is done in relational data sources. 
+• Under the Retailers dimension, Retailers hierarchy, Region level, Members folder, expand the Americas member, and then drag the Canada member to the end of the list report object, dropping when the flashing black bar appears. 
+That area of the report object indicated by the flashing black bar is known as the drop zone. 
+          Products dimension, Products hierarchy, Product line level, Members folder, Camping Equipment member, Tents member, and then drag Star Dome to the drop zone of the list report object. 
+• Ensure Sales fact measures is expanded, and then drag the Quantity measure to the list report object. 
+
+The member and measure data items are displayed in the list. 
+Drill up and drill down. 
+Because the report contains dimensionally modeled relational data, you can drill down to a greater level of detail than in a relational model. 
+• From the Application bar, click Run options, and then click Run HTML. 
+ 
+You navigated to a lower level of detail and displayed data for each quarter of 2011. In the 2011 column of data, you can click one of the values (for example, Q3 2011), click Explore, and then click Drill Up to drill back up if you want. 
+
+Close the rendered New report tab. 
+• From the Application bar, expand the Switcher menu list. 
+• Beside New report, click Remove, and then click Close without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Use personal data sources and data modules 
+Upload personal data 
+In IBM Cognos Analytics, personal data sources like a CSV or XLS file, can be imported into IBM Cognos. The personal data source can then be converted to a data module, after which it can be used as a data source for a report. 
+The process begins with the Upload files feature that is available from the New button on the Welcome page. The uploaded personal data source must be contained as a data module. This process is accomplished by selecting New > Data module. Data can be dragged from the Selected sources pane to the Data module pane to define the data module. Once the data module is been defined, it can be renamed and saved, making it available as a data source for report creation. 
+Upload custom images 
+Using the Image Library extension, you can upload custom images directly into your report without the need to navigate to the file location. This function is generally thought of as an administrative function. 
+Using navigation paths in a data module 
+View navigation paths on the Data items tab of a data module. This option allows browsing to any level that is defined in the data module. 
+To use this feature, click a data item that has one or more navigation paths that are defined. The on-demand toolbar shows the navigation icon, which allows users to go to another level, or even to skip to a different navigation path if using dimensional data. 
+Activity: Use a personal data source 
+
+Create a report that is based on a Microsoft Excel file. Upload the file to IBM Cognos Analytics, use it to create a Data module, and then use the Data module as a source for the report. 
+In this activity, you will: 
+• Upload a Microsoft Excel file. 
+• Create the data module. 
+• Create a report from the data module. 
+Upload a Microsoft Excel file. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• From the Side bar, click New, and then click Upload files. 
+• In the Choose File to Upload dialog box, browse to: C:\Training\B6258G. 
+• Click the Sample_Sales_Data.xlsx file to select it, and then click Open. 
+Wait for the file to be analyzed. Once it appears in the Recent pane, you are ready to proceed. 
+
+• On the Side bar, click My content. 
+Notice that the uploaded file is currently saved in your My content folder. 
+Create the data module. 
+• From the Side bar, click New > Data module. 
+• Under Select sources, click My content , and then select Samples_Sales_Data.xlsx file, and then click OK. 
+• Click Select tables, and then click Next. 
+• Select the check box next to Page 1 1, and then in the middle pane, click Refresh. 
+The data is displayed in the middle pane. 
+• In the middle pane, scroll down if necessary, and then click OK. 
+The new data module appears on the left pane. 
+
+• Click Page 1 1 so that the columns and data appear in the Preview data pane. 
+• In the Preview data pane, right-click the Retailer country column header, and then click Create navigation path. 
+The Create navigation path dialog box appears. 
+• In the left pane, expand Page 1 1, and then drag Province Or State to the right pane below Retailer country. 
+• Drag City to the right pane below Province Or State. 
+
+You can organize the columns in the right pane so that they appear in an appropriate navigation order, such as from Country, to Province Or State, to City. 
+The Name box provides a default name for the path, but you can edit it if desired. 
+• Click OK. 
+• At the top of the Data module pane, click Identify navigation path members . 
+The columns that were added to the navigation path appear underlined in the Data module pane. 
+
+• From the Application bar, click Save. 
+You want to save the data module under My content to test it before making it available to other users. 
+• Click My content , in the Save as box, type Sales data module, and then click Save. 
+• On the Application bar, expand the Switcher menu list and then remove all items from the list. 
+Create a report from the data module. 
+• Create a new report that uses the Blank template. 
+• Under the Insertable objects pane, on the Sources tab, click Select sources 
+• , click Sales data module, and then click Open. 
+• In the work area, click Add , click List, and then click OK. 
+• In the Sources tab, expand Sales data module > Page 1 1, and then drag Product, Retailer, and Retailer country, one at a time, to the list. 
+• Drag Revenue to the right of the last dimension type data item. 
+• Under Insertable objects, click the Data items  tab. 
+Notice the four items you added to the report have been added to Query1. 
+ 
+The Navigation paths that were created in the data module are visible at the bottom of the Data items list. 
+• From the Application bar, click Run options, and then click Run HTML. 
+The report is rendered containing data from the data module. 
+• Click the Retailer country column header. 
+• From the on-demand toolbar click Navigate . 
+• Click Province Or State. 
+
+The report updates to show data for Province Or State, rather than Retailer country. 
+• Close the rendered New report tab. 
+• From the Application bar, expand the Switcher menu list. 
+• Beside New report, click Remove, and then click OK to close without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Examine list reports 
+Use a list data container to create a list report. List reports let you present tabular information and show detailed data from your database. 
+Group data 
+Group on one or more columns to organize how the data is viewed in the list. 
+The list should preferably follow a 1:n cardinality from left to right in order to properly display the grouping. 
+Spanning one group of items by a second group can be helpful if the second group contains many items. 
+You can level span grouped items only by other grouped items on the report. 
+To group related information together, select a column and click Group/Ungroup on the toolbar. For example, when country and city are both grouped, you can choose to show the country name each time that the country changes (span Country by Country), each time the city changes (span Country by City), or every time a new record (no level spanning) is introduced. 
+A grouped item appears at the top of a new page regardless of level spanning. For example, when Country is spanned by City, the Country name appears at the top of the next page, even for records in the same City. 
+Grouping a column in a list generates an order by clause in the generated SQL, so your data is returned grouped and automatically sorted ascending. 
+Format columns 
+You can format list columns at different levels based on your requirements: 
+• Lowest level: format the cells on a list column 
+• Higher level: format both cells and the title in a list column 
+• Highest level: format both the cells and titles in all columns in the list 
+Include headers and footers 
+Headers and footers can be placed: 
+• at the top or bottom of a list on each page 
+• at the top of the first page or bottom of the last page 
+• before or after a group of details 
+Choose where to place headers and footers based on your requirements. 
+Activity: Enhance a list report 
+
+Create and format a list report to highlight and sort data items based on the values of measure data items. 
+In this activity, you will: 
+• Create the list report. 
+• Group and span columns. 
+• Add headers. 
+• Format and sort a column. 
+• Format the list column body. 
+• Add totals and sort. 
+Create the list report. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a report with the Blank template, List data container, using the relational data source Team content/Samples/Models/GO data warehouse (query). 
+• From the Sources pane, expand Sales and Marketing (query) > Sales (query), and then add the following query items to the report. 
+• Products: Product line, Product type, Product 
+• Retailer type: Retailer type 
+
+The data items are displayed in the list in the order in which they were added. 
+• From the Application bar, click Run options, and then click Run HTML. 
+• Click Bottom to view the final rows of the report, noting that no summary data is available. 
+• Close the rendered New report tab. 
+Group and span columns. 
+• In the List data container, click the <Product line> list column body (not the header), Ctrl+click the <Product type> and <Product> list column bodies, and then from the List toolbar, click Group / Ungroup . 
+The result appears as follows: 
+
+The data items are displayed based on the applied grouping. 
+You want to control how often the Product type appears in the report. You want the Product type to appear every time there is a new Product. 
+• Click the <Product type> list column body. 
+• If the properties pane on the right is not visible, then from the Application bar, click 
+Show properties  to open the Properties pane, and then in the DATA section, click Group span. 
+• In the list, click Product, and then click Show properties to close the Properties pane. 
+• From the Side bar, click Toolbox , and then drag a Block to the left of and above the list. 
+Note: Drop the block outside the list and not inside the list. 
+The block appears above the list. 
+• From the Toolbox, drag a Text item and drop it inside the Block. 
+• In the Text dialog box, type Product type Sales and Revenue by Product, and then click OK. 
+• From the on-demand toolbar, click Font, and then under Family, click Arial. 
+• In the Size list, click 16pt, under Effects, select Underline, and then click OK. 
+
+Run the report in HTML. 
+
+In this example, Product type is spanned by Product. Every time the value for Product changes the value for Product type is repeated. 
+• Close the rendered New report tab. 
+Add headers. 
+Add a page header for the report and an overall header to add additional information to the report. 
+• In the upper left corner of the List, click container selector . 
+This ensures that the entire List is selected, and not just a part of the list. 
+• From the on-demand toolbar, click More. 
+• Point to Headers & footers, and then click List headers & footers. 
+• Select the List page header and Overall header check boxes, and then click OK. 
+• In the List, double-click List page header. 
+• In the Text box, delete the existing text, type Revenue by Retailer type, and then click OK. 
+• With the page header still selected, from the on-demand toolbar, click Font. 
+• In the Family list, click Arial, in the Size list, click 12 pt., and then click OK. 
+• In the List, double-click Overall. 
+• In the Text box, delete the existing text, type Attention: Sales Managers, and then click OK. 
+• In the List, click the <Product line> list column body, and then from the ondemand toolbar, click More. 
+Point to Headers & footers, and then click Create header. 
+• With the list column body still selected, from the on-demand toolbar, click 
+Delete  to remove the redundant column. 
+• Run the report in HTML. 
+
+The report is displayed with the specified headers and groupings. 
+• Close the rendered New report tab. 
+Format and sort a column. 
+• In the List, click <Revenue>. 
+• From the on-demand toolbar, click Sort, and then click Descending. 
+When a column is sorted, the Sort icon appears in the cell that contains the column title: 
+
+In the Data format dialog box, in the Format type list, click Currency. 
+• Under Properties, click Currency, in the list, select 
+$ (USD) United States of America, dollar, and then click OK. 
+Format the list column body. 
+• Click the <Retailer type> list column body, and then from the on-demand toolbar, click Font. 
+• In the Family list, click Arial, and then in the Style list, click Italic. 
+• Click Foreground color, and then under Basic colors, click Purple. 
+• Click OK, and then click OK again. 
+The font properties are applied to the body cells in the column. 
+• With Retailer type still selected, from the on-demand toolbar, click 
+Select ancestor , and then click List column. 
+• From the on-demand toolbar, click Font. 
+• In the Family list, click Arial, in the Size list, click 12pt, and then in the Weight list, click Bold. 
+• Click Foreground color, and then under Custom color, click Green. 
+• Click OK, and then click OK again. 
+The color property is applied only to the column title because the column body formatting overrides the column formatting. However, because you have not set the size or weight for the column body, the value in the cells now appears in 12pt bold font. 
+Add totals and sort. 
+• Click the <Revenue> column body. 
+• From the on-demand toolbar click Summarize, and then click Total. 
+• Click the container selector to select the entire list, and ensure that the Properties pane shows List at the top. 
+In the Properties pane, under DATA, double-click Grouping & sorting. 
+
+The data items that were previously grouped appear under the Groups folder. 
+• In the Groups pane, expand Product line, and then from the Data items pane, drag Revenue to the Sort list folder. 
+The affected portion of the Groups pane appears as follows: 
+
+The Product line column will now be sorted in ascending order based on the revenue generated by each product line. The product line that generated the least revenue will appear at the beginning of the report. 
+Click OK, and then from the Application bar, run the report in HTML. 
+
+In the example above, the report displays Quantity and Revenue for each Retailer type, for each Product, Product type, and Product line. Because you sorted the Revenue column in descending order, Retailers with the highest revenue appear first. Because you sorted Product line by Revenue in ascending order, the Product line with the lowest revenue (in this case Outdoor Protection) appears first in the list. 
+• Take a few moments if you like to Page down and scroll through the list and examine the report. 
+• When you are finished examining the list, close the rendered New report tab. 
+• From the Application bar, click Show properties to close the Properties pane. 
+• From the Application bar, open the Switcher menu list and remove the new report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Aggregate fact data 
+You can aggregate fact data to show trends or summaries. 
+
+This example shows revenue for each product line for each employee, as well as the total for all product lines for each employee. Depending on the type of measure that is used in your report, you can also show minimum, maximum, average, total, count, or calculated data. 
+In Framework Manager, used to create data models for Cognos Analytics - Reporting, default data item properties can be set. Two of these properties are Rollup Aggregate function and Aggregate function. 
+Rollup Aggregate Function specifies the type of aggregation to apply to summary values. These values appear at the higher levels of lists and crosstabs. The default setting is Automatic. The setting of Automatic indicates that the aggregation that is applied is based on the data type of the query item. Therefore, an integer data type with Rollup Aggregate set to automatic provides total aggregation. In the example, the Rollup Aggregate function is set to Total on the Revenue data item. 
+The Aggregate function specifies the type of aggregation to apply to individual values that appear as detail rows in lists or crosstabs. 
+Identify differences in aggregation 
+Data items that are selected from the source tab are calculated and summarized before aggregation. Data items that are selected from the Data Items tab will be calculated and summarized after aggregation. 
+Fact data items should be selected from the Data items tab if they are to be used multiple times in a report or calculation, since they would not be re-aggregated based on the entire query. This process prevents any double counting of the fact data item and provides predictable results. 
+Activity: Explore data aggregation 
+
+Create a report that compares key performance indicators across different data items. This report should display values for individual totals and averages. Examine the underlying query model at various stages. 
+In this activity, you will: 
+• Examine the query model. 
+• View individual records. 
+• Group the query items. 
+Examine the query model. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, a List data container, and the data source Team content/Samples/Models/GO data warehouse (query). 
+• Expand Sales and Marketing (query) and Sales (query) and then add the following query items to the new List template: 
+• Products: Product line 
+• Order method: Order method type 
+• Sales fact: Revenue 
+• From the navigational menu at the top , click Report > Queries > Query1. 
+The three data items in the Data Items pane each correspond to an item in a column in the list. 
+• In the Data Items pane, click Revenue, and then from the Application bar, click Show properties (if the properties pane is not already visible for Revenue). 
+The Properties pane shows that the Detail aggregation property is set to Total. Data in the query is grouped and summarized at the lowest level of detail, by calculating the total revenue generated at that level. In the report, the lowest level of detail is the last attribute item before the measure data item was added. 
+Run the report in HTML. 
+
+The report shows the revenue that is generated by each order method for each product line. 
+• Close the rendered New report tab. 
+View individual records. 
+You want to review the individual records that make up the summary level totals. To achieve this result, set the Auto Group & Summarize property for this query to No. 
+• In the navigation menu, click Query1 > Query 1. 
+ 
+• From the Properties pane, under DATA, click the Auto group & summarize property, and then in the list, click No. 
+
+The report no longer displays a single row for the totals. In this example, the report shows rows containing the individual measure values that make up the summary totals that were previously displayed. 
+
+Close the rendered New report tab. 
+• Set the Auto group & summarize property for Query1 back to Yes. 
+Group the query items. 
+You want to group the data at the highest level and add aggregate data to display an average. 
+• From the navigation menu, click Report > Pages > Page1. 
+• In the List, click the Revenue column body, and then from the on-demand toolbar, 
+Data format .  
+Hint: You may have to close the Properties pane in order to see the Data format icon. 
+• In the Format type list, click Currency. 
+• Under Properties, click Currency, in the list, select USD - United States of America, dollar, and then click OK. 
+• In the List, click the Product line column body (this is the highest level attribute type data item), and then from the on-demand toolbar, click Group / Ungroup. 
+• In the List, click the Revenue column body. 
+• From the on-demand toolbar, click Summarize, and then click Average. 
+Examine how the specified aggregation changed the Summary property for the measure type data item in this query. 
+• From the navigation menu, click Report > Queries > Query1. 
+• In the Data Items pane, click Average(Revenue), and then if necessary, on the Application bar, click Show properties. 
+The Properties pane shows that the Summary property is now set to Average. The specified measure for grouped items in the report is aggregated to display the average. 
+Run the report in HTML. 
+
+In this example, the data is grouped by the Product line (highest level data item). For each Camping Equipment value at this level, there is a displayed aggregate row showing the average value of all values for the Order method type. 
+• Close the rendered New report tab. 
+• On the Application bar, expand the Switcher menu list and remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Multiple facts and repeated information 
+Use shared dimensions to create multi-fact queries 
+When authoring reports with multiple facts across the business, it is necessary to use at least one shared dimension item to ensure correlated and predictable results. 
+A shared dimension is created by the data modeler to provide consistent results throughout the company's different business units. When business units report with these shared query items, they communicate more efficiently as a whole by providing the same base of information. 
+Shared dimensions are also known as conformed dimensions. 
+Results of multiple-fact queries can vary if the level of granularity differs and you use a non-conformed dimension. For example, in a package that contains a Time dimension, the granularity for time would differ between Sales target and Revenue. Sales targets could be recorded monthly, whereas, the Revenue could be recorded daily. This is not an issue when reporting and will not cause confusing results if you report at a common level of granularity, such as in this case, the month level. If you report at the day level, inventory levels display repeating values, the month total for every day of the month in the report. These values will not be double-counted. 
+Present repeated information 
+You can use either repeaters or repeater tables to present repeated information. 
+Use repeaters to duplicate individual item(s) across a single row without a particular structure. 
+Use repeater tables to repeat items in a table structure, such as mailing label information. 
+
+Activity: Create a multi-fact query 
+
+Create a list report that includes measure type data items that have values at different levels of granularity, and a non-conformed dimension. Identify how the multi-fact query, with a non-conformed dimension, returns unexpected results (repeating values). Replace the non-conformed dimension with a conformed dimension, and identify how results become accurate (no repeating values). 
+In this activity, you will: 
+• Add two facts from different query subjects. 
+• Add context. 
+• Add a query item from a conformed dimension. 
+• Delete a data item. 
+Add two facts from different query subjects. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a report with the Blank template, List data container, using the relational data source Team content/Samples/Models/GO data warehouse (query). 
+• From the Sales and Marketing (query) folder, add the following items to the list: 
+• Sales (query)/Sales fact: Revenue 
+• Sales target (query)/Sales target fact: Sales target • 	Run the report in HTML. 
+ 
+In this example, these are two distinct aggregated totals, and were returned as a result of two separate Select statements. 
+• Close the rendered New report tab. 
+Add context. 
+You want to include an attribute type data item to give context and meaning to the measure type data items. For example, if the report contained Revenue and Sales target, you could add the year in which the orders closed as a point in time to compare Revenue to Sales target. 
+• From the Sales (query) namespace, add the following query item to the beginning of the report: 
+• Time (close day): Year (close date) 
+
+The Revenue values change with each year, but the Sales target values do not. This is because the Time (close day) is not a conformed dimension. This dimension is not shared by both the two facts: Sales fact and Sales target. The Sales target fact has no relationship to Time (close day). 
+• Close the rendered New report tab. 
+Add a query item from a conformed dimension. 
+You will add a shared dimension to the report. This dimension will have a relationship to both Revenue and Sales target. 
+• Examine the time-related query subjects under Sales (query) and Sales target (query). 
+The Time (close day) query subject exists in the Sales (query) namespace, but not in the Sales target (query) namespace. This tells you that Time (close day) is not shared across the facts, and therefore is not a shared dimension.  
+The Time query subject exists in both the Sales (query) and Sales target (query) namespaces; therefore, it is a shared dimension. 
+• Under Sales (query), expand Time, and then drag Year to the beginning of the list. 
+
+The Sales target numbers now change from year to year. In 2010, there was 
+7,060,666.21 worth of orders that were placed in that year, but did not close until 2011. The orders that were placed in 2010 and closed in that same year totaled 907,292,137.51. Because Sales target has no relationship to the non-conformed dimension, Year (close date), it just repeats the value it knows for 2010. This is an example of the inaccurate results that can occur when using non-conformed query items with multi-fact reports. Therefore, it is best to use conformed query items. 
+• Close the rendered New report tab. 
+Delete a data item. 
+Delete the data item that represents the non-conformed dimension from the list. 
+• In the List, click the Year (close date) list column body, and then from the ondemand toolbar, click Delete . 
+
+The values for the measure type data items now make sense and there are no repeating values. 
+• Close the rendered New report tab. 
+• On the Application bar, expand the Switcher menu list, and then remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Create a mailing list report 
+
+Create a mailing list report that uses location information. Your data source must include location data such as Region, Country, City, Address, Province or State. Address information must be listed alphabetically by country with the country name appearing at the top. For easy readability, each page must contain no more than three addresses across and four down. 
+In this activity, you will: 
+• Create a repeater table. 
+• Add items to the table. 
+• Sort data items apply style. 
+• Change the frequency and positioning of the tables. 
+Create a repeater table. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, and the Team content/Samples/Models/GO data warehouse (query) package. 
+• Under Insertable objects, click the Toolbox tab , and then expand DATA CONTAINER. 
+• Drag a Repeater table object to the report, and then click OK to accept the default options. 
+• In the Toolbox pane, drag a Table object to the drop zone in the Repeater table object, in the report. 
+• In the Insert table dialog box, change the number of columns to 1, the number of rows to 7, and then click OK. 
+The work area now contains a two-column, three-row repeater table containing six tables, each having one column and seven rows. 
+Add items to the table. 
+• Under Insertable objects, click Sources . 
+• From the navigation menu, click Report > Queries > Query1. 
+• From the Sources tab, expand Sales and Marketing (query) > Sales (query). 
+• Expand Employee by region, and then drag Country to the Data Items pane. 
+• One at a time, drag Address 1, Address 2, City, Province or State, Postal zone, and again, Country into the Data Items pane. 
+
+When you add multiple instances of the same query item, subsequent items will be numbered to show that it is a duplicate entry. Then they can be treated as two separate data items. In the example above, the Country query item has been added twice. The first instance appears as Country, while the second instance appears as Country1. 
+• From the navigation menu, click Report > Pages > Page1. 
+• Under Insertable objects, click Data items . 
+• From the Data items pane, drag Country into the first cell of the first 1x7 table. The value is repeated in the other 5 tables. 
+• Drag Address 1, Address 2, City, Province or State, Postal zone, and again Country2 into the remaining table cells. A portion of the results appear as follows; 
+
+Notice that there are six identical tables. 
+Sort data items and apply style. 
+• Click the <Country> data item at the top of one of the tables, ensuring you select only the item and not the entire cell. 
+You can use the Properties pane to verify that only a Text item is selected, and not a Table cell. 
+ 
+All of the <Country> data items at the top of each table are selected. 
+• From the on-demand toolbar, click Sort, and then click Ascending. 
+A Sort Ascending icon appears beside the data item that represents country in the first table. 
+ 
+• From the on-demand toolbar, click Font, and then in the Size list, click 12 pt. 
+• In the Weight list, click Bold, and then click OK. 
+Change the frequency and positioning of the tables. 
+• In the upper left corner of the Repeater table, click the container selector to select the entire container. 
+• From the Application bar, click Show properties, if necessary. 
+• In the Properties pane, under GENERAL, change value for the Across property to 3, change the value of the down property to 4, and then press Enter. 
+• In the Properties pane, under POSITIONING, double-click Table properties, select the Fixed size check box, and then click OK. 
+• In the upper left corner of the first table, click the container selector to select all of the tables. 
+You should only see the individual tables selected, not the Repeater table. 
+• In the Properties pane, under BOX, double-click Margin. 
+• In the Right margin and Top margin boxes, type 10, and then click OK. 
+This adds the appropriate space for the printed labels. 
+• From the Application toolbar, click Run options, and then click Run PDF. 
+
+The report is displayed in PDF format. PDF would be the appropriate run output for mailing labels. Notice that the sort is in ascending order within each column of tables. 
+• Close the rendered New report tab. 
+• On the Application bar, expand the Switcher menu list, and then remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Create crosstab reports 
+A crosstab report is a tabular display of data with data items appearing on rows and columns, and is useful for analyzing and comparing summary data. 
+Use a crosstab data container to add data items to rows and columns, and measures to the body of the crosstab. 
+
+This image shows the location of data items and measures in a crosstab format. 
+Crosstab edge cells have four drop zones: one on each side, one at the top of the cell, and one at the bottom of the cell. Use the crosstab drop zones to add items as parents, peers, or children of other items in the crosstab. Using crosstab drop zones, you can quickly create crosstabs using drag-and-drop functionality. 
+Add measures to a crosstab 
+Any data item that can be aggregated can be added to the crosstab as the measure. 
+The measure defines the data in the report, such as revenue, quantity, or profit margin. 
+You can add measures to the body of the report or to either the row or column edges. A measure added to the body of the report is known as the default measure. It is used in cells where the measure is not defined on the row or column edge. 
+Regardless of where a measure is added, the crosstab fact cells contain the measure values. 
+In crosstabs, you can show values as a percentage of a summary instead of the actual values. For example, you can show the revenue that was generated by each product line as a percentage of the total revenue. 
+Data sources for a crosstab 
+Relational models have a basic metadata structure that looks like tables and columns in a database. 
+Dimensionally Modeled Relational (DMR) models are built from relational data sources, but are modeled with a dimensional structure (like OLAP) consisting of measures and dimensions. 
+Because crosstabs use rows and columns to define the basic structure and determine cell values, they are better suited to dimensional reporting. 
+Best practices to keep in mind when using crosstab reporting objects include the following: 
+• Crosstabs are, by design, a dimensional reporting object. 
+• Insert the data items you wish to view in the rows and columns to focus the report, rather than using filters. 
+• Filters in a crosstab may cause unpredictable results and should be used only when necessary. 
+• Crosstabs can be used in relational data reporting, but take care to maintain predictable results. 
+
+Activity: Create a simple crosstab report 
+
+Create and format a crosstab report that uses data items from your data source. 
+In this activity, you will: 
+• Create a crosstab. 
+• Nest and sort data item. 
+Create a crosstab. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report using a Blank template, a Crosstab container, and the Team content/Samples/Models/GO data warehouse (query) package. 
+• From the Source tab, expand Sales and Marketing (query), and then from the Sales (query) namespace, drag the following query items to the new crosstab data container object: 
+Rows: 
+• Products: Product line  Columns:  
+• Order method: Order method type Measures:  
+
+• Run the report in HTML. 
+The report shows the revenue generated for each product line by each order method. You want to add relevancy to the revenue items by adding years to the report to compare revenue generated in each year. 
+• Close the rendered New report tab. 
+Nest and sort data items. 
+• Expand the Time query subject, and then drag Year to the Columns, nested under <#Order method type#> as a child (or nested) cell. 
+
+The report displays the nested data item. 
+• Click the <#Year#> column title of the nested data item. 
+• From the on-demand toolbar, click Sort, and then click Ascending. 
+• Run the report in HTML. 
+
+The report shows yearly revenue for each order method on columns. If your report contains numerous data item values on the rows or the columns, you can swap the rows and columns to make it easier for consumers to read the report. 
+• Close the rendered New report tab. 
+• Click the container selector to select the entire crosstab. 
+• From the on-demand toolbar, click Swap Rows and Columns . 
+• Run the report in HTML. 
+
+The data item values on columns and rows are swapped. 
+• Close the rendered New report tab. 
+• On the Application bar, expand the Switcher menu list, and then remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Create complex crosstab reports 
+Crosstab drop zones let you create a wide variety of crosstab layouts to meet your business requirements. 
+Add items as peers 
+To add a second item as a peer below an existing item, drop the new item below the bottom instance of the item on the row edge. To add a second item as a peer above the existing item, drop the new item above either instance of the item on the row edge. 
+To add a second item as a peer to the right of the existing item, drop the new item to the right of the far right instance of the item on the column edge. To add a second item as a peer to the left of the existing item, drop the new item to the left of either instance of the item on the column edge. 
+Create crosstab nodes and crosstab members 
+The row and column edges of a crosstab are composed of sets of crosstab nodes. A crosstab node contains one crosstab node member, as well as any crosstab node members nested under it. 
+Each crosstab node member refers to a data item. 
+Crosstab nodes and crosstab node members let you easily create and modify complex crosstabs. 
+Activity: Create a complex crosstab report 
+
+Add data items to Rows, Columns, and Measures drop zones to create a crosstab report. Add additional data items to explore the flexibility of layout options using the crosstab drop zones. 
+In this activity, you will: 
+• Create a crosstab report. 
+• Nest child items on a crosstab edge. 
+• Add an item as a row peer. 
+• Add an item as a column peer. 
+Create a crosstab report. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the Crosstab data container, and the Team content/Samples/Models/GO data warehouse (query) package. 
+• From the Source tab, expand Sales and Marketing (query) and Sales (query) and then add the following query items to the crosstab report object: 
+Rows: 
+• Products: Product line Columns: 
+• Order method: Order method type 
+Nest child items on a crosstab edge. 
+• From the Sources tab, expand Sales fact, and then drag Revenue to the Rows area as a child of <#Product line#>. 
+
+Next, you will nest Quantity in the Product line rows. 
+• From the Sources tab, from Sales fact, drag Quantity to the Rows area as a peer of <#Revenue#>. 
+The correct drop zone appears at the bottom as follows: 
+
+• Run the report in HTML. 
+
+Both measure data items are now nested in the rows of the crosstab. 
+• Close the rendered New report tab. 
+Add an item as a row peer. 
+Next, you will add a data item as a peer in the rows of the report. 
+• From the Sources tab, expand Employee by region, and then drag Country to the Rows area, as a peer of <#Product line#>.  
+The correct drop zone appears as follows: 
+
+Country has no measure associated with it, since Revenue and Quantity are children of Product line only. 
+• Under Insertable objects, click Data items . 
+• From the Data Items tab, drag Revenue to the Rows area as a child of <#Country#>. 
+
+• Run the report in HTML. 
+
+Both revenue and quantity appear for each Product line, while only revenue appears for each country, as expected. You can examine the values for the nested child measure data items for two different peer data items on the crosstab rows edge. 
+• Close the rendered New report tab. 
+Add an item as a column peer. 
+• Under Insertable objects, click Sources , expand Time, and then drag Year to the left of <#Order method type#> in the Columns area of the crosstab. 
+The correct drop zone appears as follows: 
+
+A <#Year#> column now appears to the left of the <#Order method type#> column. 
+• Click the <#Year#> column header, and from the on-demand toolbar click Sort, and then click Ascending. 
+• Run the report in HTML. 
+
+You can examine revenue generated and quantity sold for your product lines as well as by different order methods. You can also examine the revenue generated in different countries by different order methods. For example, you can see that no Mountaineering Equipment was sold in 2010. 
+• Close the rendered New report tab. 
+• On the Application bar, expand the Switcher menu list, and then remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Work with crosstab data 
+Format, sort, and aggregate a crosstab 
+You can specify formatting for cells displaying data for a specific row or column edge item. 
+In a crosstab, you can sort by values in the rows or columns. You can also perform advanced sorting to sort a row or column by values in the measures. 
+In a crosstab, you can add summaries such as Total, Count, Average, Minimum, and Maximum that summarize the values in the measures. 
+
+Activity: Work with data in a crosstab 
+
+Create a crosstab report that includes sorted, formatted, and aggregated data. 
+In this activity, you will: 
+• Sort a crosstab. 
+• Format the crosstab. 
+• Add aggregate data. 
+Sort a crosstab. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the Crosstab data container, and the Team content/Samples/Models/GO data warehouse (query) package. 
+• Under Insertable objects, from the Sources tab, expand Sales and Marketing (query) and Sales (query), and then add the following query items to the crosstab report object: 
+Rows:  
+• Products: Product line 
+• Employee by region: Branch region as a peer of <#Product line#>. 
+Columns: 
+• Time: Year Measures:  
+• Sales fact: Revenue 
+• Click <#Year#> and from the on-demand toolbar, click Sort, and then click Ascending. 
+• Click <#Product line#> and from the on-demand toolbar, click Sort, and then click Ascending. 
+The result appears as follows: 
+ 
+Format the crosstab. 
+• With <#Product line#> still selected, from the on-demand toolbar click More , and then click Select Member Fact Cells. (Hint: You may need to click Show properties to hide the properties pane in order to see the More icon.) 
+• From the on-demand toolbar, click Font, click Foreground Color, and then click Blue. 
+• Click OK to close the Foreground color dialog box, and then click OK again to close the Font dialog box. 
+• Click <#Branch region#>, and then from the Application bar, click Show properties. 
+• In the Properties pane, under DATA, double-click the Sorting property. 
+• In the Sorting dialog box, from the Data items pane, drag Revenue to the Sort list pane. 
+• In the Sort List pane, double-click Revenue to change the sort order from ascending to descending (arrow pointing down). 
+• Click OK. 
+Add aggregate data. 
+• Click <#Year#>, and from the on-demand toolbar, click Summarize, and then click Total. 
+• From the Source tab, under Products, drag Product type to the Rows as a child of <#Product line#>. 
+Product type appears to the right of Product line. 
+• Click <#Product type#>, from the on-demand toolbar, click Summarize, and then click Total. 
+• In the list report, under <#Product type#>, click Total. 
+• Ensure the Total row header is selected, in the Properties pane, under TEXT SOURCE, click the Source type property, and then from the list, click Data item value. 
+• Run the report in HTML. 
+
+The report shows: 
+• the crosstab column headers (year) are sorted in ascending order 
+• values in the member fact cells are formatted in blue font (revenue) 
+• summary totals are added in the rows for each column (on the far right) 
+• summary totals are added in the columns for each nested row 
+• Click Page down to view the rest of the report. 
+
+The report shows that for Branch region, added to the Rows as a peer of Product line, revenue is sorted in descending order. 
+• Close the rendered New report tab. 
+• On the Application bar, expand the Switcher menu list, and then remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Create discontinuous crosstab reports 
+You can create discontinuous crosstabs that have unrelated data in the row and column edges. 
+Creating discontinuous crosstabs lets you present a wide variety of information in one report and customize the way it is displayed. 
+
+Activity: Create a discontinuous crosstab 
+
+Create a discontinuous crosstab report that presents values for unrelated items. Include two measures nested as children of a data item on the columns. Add two unrelated data items as peers on the rows. Add a related data item as a child to one of the data items on the rows. Add formatting to the measure values that helps distinguish them. 
+In this activity, you will: 
+• Create a discontinuous crosstab. 
+• Apply formatting to the fact cells. 
+Create a discontinuous crosstab. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the Crosstab data container, and the Team content/Samples/Models/GO data warehouse (query) package. 
+• From the Sources tab, expand Sales and Marketing (query) and Sales (query) and then add the following query items to the crosstab report object: 
+• Add Products > Product line to rows. 
+• Add Employee by region > Branch region to columns. 
+• Add Time > Year to the rows as a peer of <#Product line#>. 
+• Add Time > Quarter to the rows as a child of <#Year#>. 
+• Add Sales fact > Revenue as a nested column under <#Branch region#>. 
+• Add Sales fact > Quantity to the columns as a peer of <#Revenue#>. 
+• Use the on-demand toolbar to perform the following:  
+• Sort the <#Branch region#> column ascending. 
+• Sort the <#Product line#> row ascending. 
+• Sort the <#Year#> row descending. 
+
+Apply formatting to the fact cells. 
+• Click <#Revenue#>, from the on-demand toolbar, click More, and then click Select Member Fact Cells. 
+• From the on-demand toolbar, click Font, click Foreground color, and then click Blue. 
+• Click OK, and then click OK again. 
+• Click <#Quantity#>, from the on-demand toolbar, click More, and then click Select Member Fact Cells. 
+• From the on-demand toolbar, click Font, click Foreground color, and then click Red. 
+• Click OK, and then click OK again. 
+
+You have created a report that shows the nested formatted measures by the data items on the columns and rows edges. The rows edge also includes unrelated data items. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Create visualization reports 
+Data can be displayed graphically to effectively show comparisons, relationships, and trends using one or more of the available visualization types. IBM Cognos Analytics - Reporting provides many rich, visually appealing visualizations with additional options to enhance them. 
+Visualization categories 
+Authors can choose from the following: 
+• 11.1 visualizations 
+• 11.0 visualizations 
+• Legacy visualizations 
+• Charts 
+11.1, 11.0, and Charts categories of visualizations are included with the installation of IBM Cognos Analytics. The Legacy visualizations can be imported into the Visualization library through the IBM_Cognos_Samples.zip deployment archive. As well, additional visualizations can be authored, or existing ones can be modified, and then imported into the Visualization library. 
+The 11.1 visualizations category is the default for this version of the product. 
+The four categories of visualizations, have different visualization types, each of which emphasize different things. To choose a type, consider what you want the chart to illustrate. For example, if you want to show contributions of parts to a whole, then you would choose a Pie type visualization. If you want to emphasize the magnitude of change over time, then you would choose an Area type visualization. 
+The features and benefits of each visualization type are displayed to the right of the Visualization gallery dialog box when you click the visualization type. 
+Customize visualizations 
+As described, different categories of visualizations will have different properties available for modification. 
+Some properties are common to all types. For example, color schemes, rescaling of axes numbers, renaming axes, and displaying details can enhance reports. Fills and Background customization can greatly enhance the visual appeal of charts. Tool tips are available by default, and provide additional information while adding a level of interaction to the visualization. 
+As a report, dashboard, or story author, you can create custom color palettes while you work on the canvas. You can create two types of custom palettes: 
+• Categorical palettes are used for visualizations that support discrete colors, like pie or bar charts. 
+• Continuous palettes are used for visualizations that support color transitions, like a map or a heat map. 
+Visualizations use percentage size, so they resize based on-screen resolution. 
+See the Cognos Analytics Reporting documentation for more information on how to create custom color palettes. 
+Client side visualizations 
+All 11.1 visualizations have client-side rendering capability. The visualizations can use and interact with data stored on the browser side. Report authors can include extra data to be stored on the browser side when you create visualizations. Report consumers can filter visualizations directly on the report output using data that is already retrieved from the database. For more information, see Visualizations version 11.x in the online product documentation on www.ibm.com. 
+Enhanced Map visualizations 
+The Map visualization has been updated to allow adding multiple location categories to a map to reduce or eliminate ambiguous location names. A point location option is also available to show data for two location measures in two layers, one filled by regions, and one by points. Latitude and Longitude option is available with zoom and focus capabilities. 
+Report consumers can interact with different map layers to customize how a map is displayed. Map clustering lets you group points on a map to help users better analyze data at different zoom levels. Also, you can visualize data by location using a heatmap layer on a map. For more information regarding enhanced mapping support, see the Adding custom points or regions to a map in the product documentation. 
+Activity: Use an 11.0 visualization 
+
+Create a combination visualization to show data items on two different axes plotted against the same measure data item. Then customize aspects of the visualization. 
+In this activity, you will: 
+• Create a combination visualization. 
+• Customize properties of the visualization 
+Create a combination visualization. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, and the 
+Team content/Samples/Models/GO data warehouse (query) package. 
+• From the report area, click Add, and then click Visualization. 
+• In the upper right corner of the Visualization gallery dialog box, click the filter list drop down and ensure that 11.0 visualizations is selected. 
+ 
+• In the left pane, click Composite, in the right pane, click Simple line and column, and then click OK two times. 
+• In the Sources tab of the Insertable objects pane, navigate to the Sales and Marketing (query) > Sales (query) folder. 
+You might want to click Show properties to close the properties pane. 
+You want to compare quantity sold by product line and by region. 
+• Add the following data items to the visualization: 
+• Line value: Sales fact > Quantity 
+• Column value: Sales fact/Quantity (it will appear as Quantity1) 
+• X axis: Products/Product line 
+• Color line: Retailers/Region 
+• Run the report in HTML. 
+
+The report shows that quantity sold is lowest for Golf Equipment, both for overall sales as shown in the columns, and for all regions as shown in the line chart. 
+You want to customize the visualization to make it easier to read. 
+• Close the rendered New report tab. 
+Customize visualization properties. 
+You want to make the chart larger and change the color palette. 
+• In the work area, click the image of the chart, and then click Show properties. 
+The Properties pane appears showing data for the Simple line and column visualization. 
+• Under COMMON, change the Width to 900 and the Height to 800. 
+• Under COMMON, click Column color palette, and then from the list, select the fourth palette from the top. 
+
+Run the report in HTML. 
+
+The visualization now appears larger. All of the regions are visible in the legend. The columns now appear gold which provides a better contrast against the colors of the lines. 
+• Close the rendered New report tab. 
+• From the Application bar, remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Use an 11.1 Map visualization 
+
+Create a report that uses a Map visualization to highlight data geographically against a map, and quickly identify areas of interest. 
+In this activity, you will: 
+• Specify the Map visualization. 
+• Set the visualization properties. 
+Specify the Map visualization. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the Team content/Samples/Models/GO data warehouse (query), and the Visualization data container. 
+• In the Visualization gallery dialog box, in the upper right corner, select 
+11.1 visualizations from the Filter list. 
+• In the Visualization gallery, from the list on the left, select Map, and then click OK. 
+Map visualizations have three layers to display data: Region, Point, and Latitude/Longitude. By default, the drop zones automatically appear. 
+• If the drop zones are not visible, click the background of the visualization to display them. 
+This background click serves as a toggle to display and hide the drop zones. 
+• Ensure that Regions is selected in the drop-down list, and then in the Sources tab, expand Sales and Marketing (query) > Sales (query) > Employee by region. 
+• Add Country to the Locations drop zone. 
+Add Sales fact > Revenue to the Location color drop zone. 
+
+• Click the arrow beside Regions to open the list, and then select Points. 
+• Add Employee by region > City to the Locations drop zone. 
+• Add Sales fact > Revenue to the Point size drop zone. 
+• Add Sales fact > Quantity to the Point color drop zone. 
+
+If you had Latitude and Longitude data, you would select Latitude/Longitude from the list and populate the appropriate fields: 
+
+Set the visualization properties. 
+• Click the visualization background, and then, if necessary, on the Application bar, click Show properties. 
+• In the Properties pane, under VISUALIZATION, set the Size to 1000 x 1000. 
+• In the Properties pane, under MAP, set Hide Location Warnings to Yes. 
+• In the Properties pane, under COLOR PALETTE, click Regions > More . 
+• In the System list, scroll down and click the last palette, Red-blue inverse divergent, and then click Back. 
+• In the Properties pane, under MAP, click Style, and then in the list, click Outdoors. 
+Run the report in HTML, and then move the cursor over the regions and points on the map to view interactive messages. 
+
+The report is displayed with the Map visualization. 
+• Close the rendered New report tab. 
+• From the Application bar, remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Use a Legacy visualization 
+
+Create a report that combines a Crosstab data container to show data numerically, with a Visualization data container to show data graphically. 
+In this activity, you will: 
+• Create the Crosstab data container. 
+• Create the Visualization data container. 
+• Add filters to focus the data. 
+• Add a microchart. 
+Create the Crosstab data container. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the 
+Team content/Samples/Models/GO data warehouse (query) package, and a Crosstab data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add Order method > Order method type to the Rows, and then add Time > Year to the Columns. 
+• Under the <#Year#> column data item, add Sales fact > Revenue and Sales fact > Quantity, nested as peers. 
+
+Order method type appears on rows, and Revenue and Quantity appear nested under Year on columns. 
+
+Create the Visualization data container. 
+• Under Insertable objects, click Toolbox , expand DATA CONTAINER, and then drag a Visualization data container to the left of the crosstab. 
+• In the upper right corner of the Visualization gallery dialog box, click the filter icon, and then click Legacy visualizations. 
+• In the left pane, click Line, in the middle pane, click Combination chart, and then click OK. 
+• Click OK to accept the default settings. 
+• Click the Combination chart: Clustered column data container to select it, and then from the Application bar, click Show properties. 
+• In the Properties pane, under DATA, click the Query property, and then in the list, click Query1. 
+• Repeat for the Combination chart: Line data container. 
+• Under Insertable objects, click Data items , and then ensure Query1 is expanded. 
+• Drag Year to the Combination chart: Clustered column data > Categories > Categories (x-axis) drop zone. 
+• Drag Year to the Combination chart: Line data > Categories > Categories (xaxis) drop zone 
+• Drag Order method type to the Combination chart: Clustered column data > Categories > Series drop zone. 
+• Drag Order method type to the Combination chart: Line data > Categories > Series drop zone. 
+• Drag Revenue to the Combination chart: Clustered column data > Values > Size drop zone. 
+• Drag Quantity to the Combination chart: Line data > Values > Size drop zone. 
+The result appears as follows: 
+
+A combination chart appears next to the crosstab, both showing the same data. 
+• Close the rendered New report tab. 
+Add filters to focus the data. 
+• Click the Combination chart visualization to select it, from the on-demand toolbar, click Filters , and then click Edit Filters. 
+• Click Add, ensure that Custom based on data item is selected, and that Order method type is selected in the list. 
+• Click OK. 
+The Filter condition dialog box appears. 
+• Under Find, click Email, and then click the plus sign , being careful not to click the green Add button. 
+• Repeat for Sales visit, Special, Telephone, and then click OK. 
+• In the Filters dialog box, under Application, ensure that 
+Before auto aggregation is selected, and then click OK. 
+Both the visualization and the crosstab are filtered to only show data for four order method types because each are using the same query. 
+• Close the rendered New report tab. 
+Add a microchart. 
+• In the crosstab, click <#Order method type#>, from the on-demand toolbar, click More, and then click Insert chart for Row Data. (Hint: You may need to close the properties pane to see the More icon.) The Insert chart dialog box appears. 
+• In the left pane, verify that Microchart is selected, and then click OK to accept the default Line microchart. 
+• In the Categories (x-axis) section of the microchart, drag Revenue to the Default Measure (y-axis). 
+• In the Categories (x-axis) section of the microchart, click <#Quantity#>, and then press Delete. 
+The entire section may disappear. If it does, click the chart background again to see the results of your Delete action just performed. 
+
+The microchart is populated to show Revenue by Order method type by Year. 
+A section of the results appears as follows: 
+
+You added a microchart to the crosstab for a quick overview of measure values for the filtered data items on Columns. 
+• Close the rendered New report tab. 
+• From the Application bar, remove the New report without saving. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Focus reports using filters 
+Create filters to narrow the focus 
+To narrow the focus of your report, you can create a filter expression in three different ways: 
+• Custom based on data item - expression built by using the drag and drop method of adding data item(s) 
+• Combined - combining two or more expressions 
+• Advanced - custom filter based on an expression 
+When you create a filter, you define conditions around query items to report on a specific subset of data. 
+Use advanced detail filters 
+A detail filter will be applied to all rows in the report. 
+For detail filters, filter any item in the package that uses the Source tab, or filter items in the report that uses the Data Items tab or Queries tab. Use the Functions tab to create filter calculations. Use the Parameters tab to use existing filters. 
+Apply a filter with aggregation 
+Aggregated data can show totals, averages, or other formats of summarized data. 
+Save time and effort by applying filters published with your source package rather than creating your own. 
+Use summary filters 
+To add a filter that will apply to groups in the report, click the Summary Filters tab in the Filters dialog box. 
+When you use a summary filter, you can specify the group on which you want to filter. 
+When you combine detail and summary filters, be aware that the detail filter will affect the summarized numbers that you are filtering on. Be sure to check that the results are as expected. 
+Activity: Apply filters to a report 
+
+Create a report that will be filtered on a specified data query item and a year query item.  
+In this activity, you will accomplish the following: 
+• Create the list. 
+• Add a filter for Year. 
+• Filter on Country. 
+Create the list. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Employee by region: Country, City, First name, Last name, Position name 
+• Sales fact: Revenue 
+• Click the <Country> column body, Ctrl+click the <City> column body, and then from the on-demand toolbar, click Group / Ungroup. 
+• Click the <Country> grouped column body, from the on-demand toolbar, click More, point to Headers & footers, and then click Create header. 
+• With the <Country> column still selected, press the Delete key to remove the redundant column. 
+• Click the <Revenue> list column body, from the on-demand toolbar, click Summarize, and then click Total. 
+• Click the <Revenue> list column body, from the on-demand toolbar, click Sort, and then click Descending. 
+• From the Application bar, run the report in HTML. 
+
+The report is grouped on Country and City, with Country appearing as a header. The report is sorted in descending order by revenue so that representatives with the highest revenue appear first. Revenue is summarized by Total showing grouped summaries at the City and Country levels. 
+• Close the rendered New report tab. 
+Add a filter for Year. 
+• Select the entire list data container. 
+• From the on-demand toolbar, click Filters, and then click Edit Filters. 
+The Filters - Query1 dialog box appears. There are two tabs: one for creating filters at the detail level, and one for creating filters at the summary level. 
+• With the Detail Filters tab selected, click Add , click Advanced, and then click OK. 
+• Under Available Components, ensure the Source tab  is selected at the bottom of the pane, navigate to Sales and Marketing (query) > Sales (query), and then expand Time. 
+
+From the Time query subject, drag Year into the Expression Definition pane. 
+The x appears as [Sales (query)].[Time].[Year]. You want to show data for the year 2012 only. 
+• Click the end of the expression to place your cursor after [Year], and then type =2012. 
+• Click Validate  to ensure the expression contains no errors. 
+A section of the result appears as follows: 
+
+The expression [Sales (query)].[Time].[Year]=2012 validated with no errors.  
+There are different ways of creating filters to achieve the same result. For example you could achieve the same result using any of these methods: 
+• Drag Year into the Expression Definition pane and then type =2012  
+• create the expression [Sales (query)].[Time].[Date] between 2012-01-01 and 2012-12-31 
+• create filters by adding operators and conditions to query items using SQL syntax 
+• Click OK to close the Detail filter expression dialog box, and then click OK to close the Filters - Query1 dialog box. 
+• Run the report in HTML. 
+The report layout remains the same but the Revenue values are lower than before because the report only contains data for 2012 instead of all years. 
+• Close the rendered New report tab. 
+Filter on Country. 
+You want the report to only include data for Austria and Italy. 
+• Select the entire list data container, from the on-demand toolbar, click Filters, and then click Edit Filters. 
+The Filters - Query 1 dialog box appears showing the detail filter you just created. You will create another detail filter. 
+• Click Add, ensure that Country (the header) is selected under Custom based on data item, and then click OK. 
+Advanced search options are also available. 
+• Under the Find list, click Austria, and then Ctrl+click Italy. 
+Below the Find list, a message appears indicating that two values have been selected. 
+ 
+• Click OK to close the Filter condition dialog box, and then click OK to close the Filters - Query1 dialog box. 
+Run the report in HTML. 
+
+This report now only contains data for Austria and Italy for the year 2012. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Apply a detail filter on fact data 
+
+Create a report that displays total values in order to identify the top performing items. To create this report, add several filters and examine how they affect the query. 
+In this activity, you will accomplish the following: 
+• Create a list. 
+• Apply a detail filter before auto aggregation. 
+• Group and summarize the data. 
+• Apply a detail filter after auto aggregation. 
+• Examine the effects of the filters. 
+Create a list. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the 
+Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Products: Product line, Product type 
+• Sales fact: Revenue 
+• Click the Product line list column body, and then from the on-demand toolbar, click Group / Ungroup. 
+• Click the Revenue list column body, from the on-demand toolbar, click Summarize, and then click Total. 
+Run the report in HTML. 
+
+The data is grouped and an aggregate row displays the total value generated for each Product type. Take note of one of the first grouped summarized totals, such as Cooking Gear, which is $272,835,984.18. You will compare this number with the values generated later. 
+• Close the rendered New report tab. 
+• On the navigation menu, click Report > Queries > Query1. 
+• In the Data Items pane, click Revenue, and then, from the Application bar, click Show properties. 
+In the Properties pane, notice that the Detail property for Revenue is set to Automatic. 
+• In the Data Items pane, click the Total(Revenue) query item. 
+In the Properties pane, notice that the Summary property is set to Total. This is because, in the layout, you added an aggregate row displaying total revenue for grouped items in the report. 
+• In the navigation menu, click Report > Queries, and then in the work area, click Query1. 
+In the Properties pane, notice that the Auto group & summarize property for the query is set to Yes. You want to view each individual data record, so you will change this property to No. 
+
+From the navigation menu, click Report > Queries > Query1 list, select Query1. 
+• On the properties pane, click the Auto group & summarize property, and then select No from the list. 
+
+The report now displays each individual record rather than a summary value for each Product type. 
+Note: Do not click the Bottom navigation button because this report could return a large amount of data and it will take a considerable amount of time to render the last page. The order you see displayed in the results may vary because no sorting has been applied. 
+• Close the rendered New report tab. 
+Apply a detail filter before auto aggregation. 
+You want this report to include only individual sales of product types that generated more than $100,000 in revenue. You will create a detail filter and apply it before auto aggregation. 
+• From the navigation menu, click Report > Pages > Page1, and then select the List data container. 
+You can verify that the list is selected by looking at the on-demand toolbar just above properties pane. 
+• From the on-demand toolbar, click Filters, click Edit Filters, and then ensure the Detail Filters tab is selected in the Filters dialog box. 
+• Click Add, from the Custom based on data item list select Revenue, and then click OK. 
+• Ensure that the Operator is >, and then in the Value text box, type 100000 (100 thousand). 
+
+• Click OK, and then in the Application area, click Before auto aggregation. 
+• Click OK to close the Filters dialog box. 
+• Run the report in HTML. 
+The report now displays only data for individual sales of product types that generated more than $100,000 in revenue. 
+• In the report, click Bottom. 
+The total revenue generated by product type orders of over $100,000 is $496,713,003.20. 
+• Close the rendered New report tab. 
+• From the navigation menu, click Report > Queries > Query1. 
+The filter that you created appears in the Detail Filters pane. 
+In the Detail Filters pane, click the Revenue>100000 filter. 
+In the Properties pane, the properties specified for the filter display as follows: 
+• Definition: displays the expression you created for this filter 
+• Usage: is set to Required 
+• Application: is set to Before Auto Aggregation 
+Group and summarize the data. 
+You want to see only one row of values for each item, so you will set the Auto Group & Summarize property for the query back to Yes. 
+• On the navigation menu, click Report > Queries > Query1, and from the list, select Query1. 
+• In the Properties pane, under DATA, change the Auto group & summarize property to Yes. 
+
+There is only one row for each product type because the query will group and summarize the data at the lowest level of detail. 
+The revenue generated by Cooking Gear is $1,863,445.82. When you ran this report without the filter, the revenue generated by Cooking Gear was 
+$272,835,984.18. The value is different because it no longer includes individual orders that generated less than one hundred thousand dollars in revenue.  
+The total revenue generated by all product lines is $496,713,003.20, which is the same as when you ran the report with the Auto group & summarize property for the query set to No. 
+Since you specified that the filter was to be applied before the query will group and summarize retrieved data, the filter will exclude the same data regardless of whether the query retrieves data that is summarized or not summarized. 
+• Close the rendered New report tab. 
+Apply a detail filter after auto aggregation. 
+You want the report to display only items for which the total value is greater than the indicated value. To achieve this, you will create a detail filter and apply it after auto aggregation. 
+• On the navigation menu, click Report > Pages > Page1. 
+• Select the List data container, from the on-demand toolbar click Filters, and then click Edit Filters. 
+• Click Add, select Revenue from the Custom based on data item list, and then click OK. 
+• Ensure that the Operator is >, and then in the Value text box, type 10000000 (10 million). 
+• Click OK, and then ensure that under the Application section, After auto aggregation is selected. 
+• Click OK to close the Filters dialog box. 
+Examine the effects of the filters. 
+• Run the report in HTML. 
+Only the five product types that generated total revenue greater than ten million display in the report. 
+• Close the rendered New report tab. 
+You have decided to include items in the report even if the aggregated revenue generated is less than 10 million. However, in case you may want to use this filter in the future, you will disable this filter instead of deleting it. 
+• Select the List data container. 
+• From the on-demand toolbar, click Filters, and then click Edit Filters. 
+• Click Revenue > 10000000, and then in the Usage area, click Disabled. 
+• Click OK to close the Filters dialog box. 
+Run the report in HTML. 
+
+All product types that generated over $100,000 in revenue (in at least one order), again appear in the report, which indicates that the second filter you added has been disabled. 
+• Close the rendered New report tab. 
+• On the navigation menu, click Report > Queries > Query1. 
+Notice that the Revenue > 10000000 filter still appears in the query, though the icon beside it is grayed out, indicating that it is unavailable to the query. 
+• In the Detail Filters pane, click the Revenue > 10000000 filter. 
+In the Properties pane notice that, as specified, the Usage property for the filter is set to Disabled. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Apply a summary filter 
+
+You will create a report that focuses on items that have generated values that are considered very successful. You will use a summary filter to focus on this data. 
+In this activity, you will accomplish the following: 
+• Apply a summary filter. 
+• Navigate to the query explorer. 
+Apply a summary filter. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Products: Product line, Product type 
+• Sales fact: Revenue 
+• Click the <Product line> list column body, and then from the on-demand toolbar, click Group / Ungroup. 
+• Click the <Revenue> list column body, from the on-demand toolbar, click Summarize, and then click Total. 
+• Select the List data container, from the on-demand toolbar, click Filters, and then click Edit Filters. 
+The Filters dialog box appears. 
+• Click the Summary Filters tab, click Add, click Advanced, and then click OK. 
+The Summary filter expression dialog box appears. 
+You want to only show product lines that generated total revenues of greater than 1,000,000,000 (1 billion). 
+• From the Available Components pane, drag Total(Revenue) to the Expression Definition pane, and then type >1000000000. 
+The expression reads: Total(Revenue)>1000000000 
+Click Validate. 
+The expression validates with no errors. 
+• Click OK. 
+• In the Filters dialog box, to the right of the Scope text field, click the ellipsis. 
+• Select Product line, click OK to close the Scope dialog box, and then click OK to close the Filters dialog box. 
+
+Only two product lines generated total revenues greater than $1,000,000,000: Camping Equipment and Personal Accessories. 
+• Close the rendered New report tab. 
+Navigate to the query explorer. 
+• From the navigation menu, click Report > Queries > Query1. 
+The summary filter you added appears in the Summary Filters pane. 
+• If the properties pane is not visible, click Show Properties. 
+• In the Summary Filters pane, click the filter. 
+In the Properties pane, the Scope property for this filter is set to Product line. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Focus reports using prompts 
+Examine parameters and prompts 
+Prompts ask the user to provide the value for the parameter that filters the report on specific data values. They function as dynamic filters. 
+There are three ways to prompt for report specifications: 
+• create a parameter for an item on the report 
+• add a prompt page to the report containing one or more prompt items 
+• add a prompt item to a report 
+Parameters are placeholders that require a value to determine what data to report on. 
+Parameterized filters consist of a query item and operator. The operator you choose determines some of the default properties of the prompt. For example, if you choose the = operator the user will only be able to select a single option from the prompt (MultiSelect - No). If you choose the ‘in’ operator, the user will be able to select multiple options from the prompt. 
+Create a parameter for a report item 
+Reporting can automatically generate prompted reports based on parameters you create. If you create a parameter for an item on a report, when you run the report you will be prompted to specify a value for that item. The report displays the information according to the value given in the prompt. The prompt is created automatically and must be answered in order to view the report. 
+Add a prompt page 
+You can create a prompt page to control how prompts appear in the report. A prompt page can be built by dragging prompt tools from the Tool box tab. 
+You can also create a blank prompt page by adding a new page to the Prompt Pages section in Page Explorer. Once on the new prompt page, you can drag prompt items onto the work area. 
+A date item will automatically generate a Calendar prompt, a number item generates a Text Box prompt, and a value item will generate a Value prompt. 
+Add a prompt item to a report 
+When a prompt item is dragged onto a report, a prompt wizard walks the report author through the prompt building process.  
+
+The wizard will add a prompt control and a parameterized filter to the report by performing the following tasks: 
+• Create a parameter. 
+• Add a filter to the data container with the parameter. 
+• Create a query for the prompt. 
+• Add the query and the parameter to the prompt. 
+If you add a prompt directly onto a report page, you will either need to set the prompt to automatically submit the selection, or add a Finish prompt button to the report so that the report will regenerate that uses the new criteria. 
+Identify a prompt type 
+Choose the appropriate prompt type for your reporting requirements. If you add prompt items to a report or prompt page, you can choose from the different types of prompts available in the Toolbox tab according to your needs. If you select items on a report and then create a prompt page, Reporting will choose an appropriate prompt type for you. 
+Similarly, a generated prompt acts as a placeholder in the work area, but when the report is run, Reporting selects the appropriate prompt type for that report. 
+If there are a large number of choices available (such as sales rep name), then Select & Search is a good option. This saves time in scrolling to look for the desired option. If the exact name or spelling of an item is unknown, then avoid using the Text Box prompt as the value must be typed in exactly as it appears in the report. 
+Interval prompts are valuable for reporting on very specific time frames as they let you choose lowest to highest time intervals in days, hours, and minutes. 
+Create a cascading prompt 
+You can use values from a previous prompt to filter the values in the current prompt or picklist. 
+The selection that the user makes in one prompt determines what is populated in another prompt. 
+When you create a series of prompts that have a hierarchical relationship, you can define them as cascading, so that a prompt selection is determined by the choice of the user in the previous prompt. 
+Activity: Add a parameter to create a prompt 
+
+Create a report showing items by date to determine the values generated. Because the report contains detailed information, filter the report to show values after a specified time period. Create a parameter to prompt a user for a date and the report will return all dates greater than the one specified. 
+In this activity, you will accomplish the following: 
+• Create the list. 
+• Add a date parameter. 
+Create the list. 
+• Open a new report that uses the Blank template, the Team content/Samples/ Models/GO data warehouse (query) package, and a List data container. 
+• On the Sources tab, expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Sales order: Order number 
+• Time: Date 
+• Products: Product 
+• Sales fact: Revenue 
+• Click the <Date> list column body, from the on-demand toolbar, click Sort, and then click Ascending. 
+
+The report appears showing the revenue generate by each product in each sales order, including the date for each order. 
+Notice that the earliest date shown at the top of the report is Jan 12, 2010. 
+• Click Bottom to see the last page of the report. 
+Notice that the last date returned is Jul 20, 2013. 
+• Close the rendered New report tab. 
+Add a date parameter. 
+You want users to be able to filter the report to only include orders that occurred after a specific date. 
+• Select the List data container. 
+• From the on-demand toolbar, click Filters, and then click Edit Filters. 
+• Click Add, click Advanced, and then click OK. 
+The Detail filter expression dialog box appears. 
+• Create and validate the following expression: 
+• [Date]>?Date? 
+Hint:  
+• drag Date from the Data Items  tab (second tab at the bottom of the Available Components pane), and then type >?Date? 
+• validate for 2013-Jan-1 
+The report will only retrieve data where the order date is greater than the date specified by the user. 
+• Click OK to close the Detail filter expression dialog box, and then click OK to close the Filters dialog box. 
+• Run the report in HTML. 
+You are prompted to select a date and time. 
+
+Select 2013-Jan-1, accept the default time, and then click OK. 
+
+The first order in the report occurred on Jan 8, 2013. 
+• Click Bottom to see the last page of the report. 
+The last order in the report occurred on July 20, 2013. All orders in the report occurred after Jan 1, 2013, as expected. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Activity: Add a value prompt 
+
+Create a report to help reduce costs. Because there are many query items, a prompt is added so that users can view specific data. 
+In this activity, you will accomplish the following: 
+• Create the list. 
+• Add a value prompt. 
+• Add a prompt button and set the properties. 
+• Customize the prompt. 
+• Run the report. 
+Create the list. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the 1 column template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Products: Product line, Product type, Product 
+• Sales fact: Unit cost  
+• Gross margin (calculated fact under Sales (query)). 
+• In the report, click <Product line>, Ctrl+click <Product type>, and then from the on-demand toolbar, click Group / Ungroup. 
+• Delete the Double-click to edit text from the page header block at the top of the report. 
+• Under Insertable objects, click Toolbox , and then drag a Table object into the page header block. 
+• On the Insert table dialog box, clear the Maximize width checkbox, and then click OK to accept the default size of 2 columns and 1 row. 
+Click the page header block (not the table), and then from the on-demand toolbar, 
+click Horizontal alignment , select Left . 
+The table header appears as follows: 
+ 
+Notice that there are two table cells in the header that represent your two columns and one row. 
+Add a value prompt. 
+• From the Toolbox tab, expand PROMPTING, and then drag a Value prompt into the left table cell. 
+You want the prompt to filter on product line code to make the query more efficient. However, the prompt will display product line names, not codes, to make selections easier. 
+• In the Prompt Wizard - Value prompt dialog box, change the parameter name to ProductLineCode, and then click Next. 
+• On the Create Filter page, ensure that Create a parameterized filter is selected, and then beside Package item, click the ellipsis. 
+• Expand the Sales and Marketing (query) folder, Sales (query) namespace, Products, and then the Codes folder. 
+Product line code is used because it is an indexed field. Querying on an indexed field is much faster and more efficient. 
+• Click Product line code, and then click OK. 
+• Select Make the filter optional. 
+• Click Next, and then beside Values to display, click the ellipsis. 
+• Expand the Sales and Marketing (query) folder, expand the Sales (query) namespace, and then expand Products. 
+• Click Product line, click OK, and then click Finish. 
+Add a prompt button and set the properties. 
+• From the Toolbox tab, in the PROMPTING section, drag a Prompt button into the right table cell. 
+• If the properties pane is not visible, on the Applications bar, click Show Properties. 
+• On the Properties pane, under GENERAL, click Type, and then from the list, select Finish. 
+• Run the report in HTML. 
+The report opens in the browser, displaying data for all the items. The report can run because the parameterized filter is defined as optional. 
+• From the Product line prompt list, select Golf Equipment, and then click Finish. 
+Only information for the chosen value is displayed. 
+• Close the rendered New report tab. 
+• From the navigation menu, click Report > Pages > Page1 to return to the report design. 
+• Click the Finish prompt button, and then press Delete. 
+• Click the Value prompt, to select it. 
+• In the Properties pane, under GENERAL, click Auto-submit, and then change the property to Yes. 
+Setting Auto-submit to Yes means the user will not need to click Finish after selecting a prompt. 
+Customize the prompt. 
+You want to customize the prompt header to provide instructions on how to use the prompt. 
+• With the Value prompt selected, in the Properties pane, under PROMPT TEXT, click Header Text, and then click the ellipsis. 
+• Select Specified text, and then click the ellipsis to the right of the text box. 
+To control the usage of your prompt between required or optional, make the change directly on your filter through your filter's Usage property instead of changing this setting on your prompt. The filter's Usage property overrides the prompts Required property. 
+Type the following in the Default text box: Select the desired Product line:. 
+You can also add information here as well for localization. 
+• Click OK to close the Localized Text dialog box, and then OK to close the Header Text dialog box. 
+Run the report. 
+
+The report opens in the browser displaying data for all items. The Value prompt list now displays the instruction to select the desired Product line. 
+• In the list, select Golf Equipment. 
+The report now displays data for Golf Equipment only. With the Auto-submit property set to Yes, you can use the list to select the item data you want to display without having to click an additional button to submit your selection. 
+• Close the rendered New report tab. 
+• From the Application bar, click Save , navigate to My content , and then save the report as Prompt report. 
+• Keep this report open for the next activity. 
+Activity: Add a Select & search prompt 
+
+Change your current report to allow users to select multiple values to show in the report. To do this delete the current value prompt and replace it with the Select & search prompt. 
+Note:  Before starting this activity, the previous activity needs to be completed (Add a value prompt to a report), as the report (Prompt report) is used for this activity. 
+In this activity, you will accomplish the following: 
+• Run an existing report. 
+• Add a Select & search prompt. 
+• Run the report. 
+Run an existing report. 
+• With the report from the previous activity opened (My Content > Prompt report), run the report in HTML. 
+• In the list, select Golf Equipment. 
+The report only includes information on Golf Equipment. You will now modify the prompt to let users search and select one or more product lines. 
+• Close the rendered New report tab. 
+Add a Select & search prompt. 
+• In the report header, click the Value prompt, and then delete it. 
+• Select the List data container, from the on-demand toolbar, click Filters, and then click Edit Filters. 
+Notice that the prompt filter remained even when the Value prompt was deleted. 
+• Select the filter, press Delete on your keyboard, and then click OK. 
+• From the navigation menu, click Report, and then click Prompt pages. 
+• From the Toolbox, drag a Page object to the Prompt pages pane (the adjacent pane beside the Toolbox pane). 
+• Double-click Prompt page1 to open the prompt page, expand PROMPTING, and then drag a Select & search prompt object onto the prompt page. 
+The Prompt Wizard – Select & search prompt dialog box appears. 
+• On the Choose Parameter page, change the parameter name to Productnames, and then click Next. 
+On the Create Filter page, ensure that Create a parameterized filter is selected, and then beside Package item, click the ellipsis. 
+• Expand the Sales and Marketing (query) folder, Sales (query) namespace, Products query subject, click Product, and then click OK. 
+• Select Make the filter optional. 
+• In the Operator list, select in, click Next, and then click Finish. 
+The Select & search prompt appears on the prompt page. 
+The in operator is used to allow for multiple selections. If the '=' operator is selected, the prompt would allow for only a single selection. 
+Run the report. 
+• Run the report in HTML. 
+• On the prompt page, click Finish to accept the default of all product lines. 
+The report appears containing data for all Product lines. The report ran because you made the prompt optional. Next, you will run the report again and search for a specific value. 
+• Click Run  to run the report again. 
+• In the Keywords text box, type Firefly (no other text should appear in the text box), and then expand the options drop-down list below the results pane that says Starts with any of these keywords. 
+The list of search options allows you to refine your search. 
+• Select Contains any of these keywords, and then click Search . 
+The result appears as follows: 
+
+All product lines with Firefly in the title appear in the Results box. 
+• Below the Keywords search box, click the Select all check box, and then click 
+Add (blue arrow)  to add the selected items to the Choices pane. 
+• Repeat the above steps with the keywords Butane Kerosene in a single search, Select all of the results, and then add them to the Choices pane. 
+Click Finish to see the results. 
+
+The report runs and is filtered to display only the data associated with the items that you selected based on your search. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Create a cascading prompt 
+
+Create a report that enables users to focus on specific query items and the hierarchal relationship within. Create a cover page for a more professional look. 
+You will accomplish the following: 
+• Create a prompt page with a cascading prompt. 
+• Set prompt behavior patterns. 
+• Create a static value to select all values. 
+• Create a cover page. 
+• Run the report and view specific values. 
+Create a prompt page with a cascading prompt. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the 1 column template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query) and Returned items (query). 
+• Add the following query items to the list: 
+• Sales (query) > Products: Product line and Product type 
+• Sales (query) > Order method: Order method type 
+• Returned items (query) > Returned items fact: Return quantity 
+Returned quantity works in this query because the Returned items (query) namespace has the same query items as the Sales (query) namespace. Returned quantity is a conformed value. 
+• In the Text field at the top of the report, change the title to Product type by Product line for all Order methods, and then click OK. 
+• With the title text still selected, change the font to Arial, 14pt. 
+• Select the Block containing the header text, and then from the on-demand menu, click Horizontal alignment, and then left justify the text. 
+• Ctrl+click <Product line> and <Product type>, and then from the on-demand toolbar, click Group / Ungroup. 
+Click <Product line>, and then Ctrl+click <Product type>, and <Order method type>. 
+• From the on-demand toolbar, click More, and then click Build prompt page. 
+You may need to hide the properties pane in order to view the More icon. 
+Set prompt behavior patterns. 
+• In the Prompt page work area, click the Product type value prompt. 
+• From the Application bar, click Show properties. 
+• In the Properties pane, under GENERAL, double-click Cascade source, and then from the list, select Product line. 
+The values that will be shown in the second prompt are dependent upon the choice made in the first prompt when the prompt submits. 
+• Click OK. 
+• In the Properties pane, under GENERAL, ensure that Multi-select is set to Yes, and that Auto-submit is set to No. 
+• In the work area, click the Product line value prompt. 
+• In the Properties pane, under GENERAL, in the Multi-select list, select No, and then, in the Auto-submit list, select Yes. 
+The user can only select one option from the Product line prompt, and the selection will be submitted automatically. 
+• In the work area, click the Order method type value prompt. 
+• In the Properties pane, under GENERAL, in the Multi-select list, click No, and then ensure that Auto-submit is set to No. 
+The user can select multiple options from the Product type and Order method type prompts, but the selections will not submit automatically. Once all of the selections for these prompts are complete, the user must submit the request by clicking Finish. 
+Create a static value to select all values. 
+• With the Order method type prompt still selected, under DATA, double-click 
+Static choices, and then click Add . 
+
+Type ALL for both the Use and Display values, click OK to close the Edit dialog box, and then click OK to close the Static choices dialog box. 
+The value entered for static choices is case sensitive and should be entered the exact same way in your filter expression. 
+You will specify what values to return when ALL is selected in the Order method type prompt. 
+• On the navigation menu, click Report > Pages > Page1. 
+• Click anywhere in the list, from the on-demand toolbar, click Filters, and then click Edit Filters. 
+• Click the Order method type filter, and then click Edit . 
+The Detail filter expression dialog box appears. 
+• Replace and validate the existing expression with the following: 
+if (?Order method type?='ALL') then ([Order method type]=[Order method type]) else([Sales (query)].[Order method].[Order method type] = ?Order method type?) 
+Hint: Drag [Order method type] from the Data items  tab, and drag [Sales 
+(query)].[Order method].[Order method type] from the Source  tab. 
+• When prompted, choose Camping Equipment, Lanterns, and Web, and then click OK to close the validation box. 
+• Click OK to close the Detail filter expression dialog box, and then click OK to close the Filters - Query1 dialog box. 
+Create a cover page. 
+• On the navigation menu, click Report > Pages . 
+• From the Toolbox tab, drag a Page to the Report pages section, placing it above Page1. 
+The results appear as follows: 
+ 
+If necessary, click Show properties so that the properties pane is visible, and under MISCELLANEOUS, in the Name box, change the name from Page2 to CoverPage, and then press Enter. 
+• In the Report pages pane, double-click CoverPage to open it. 
+• In the work area, click Add, click Table, and then click OK to accept the default size of 2 columns and 1 row. 
+• Click the left table cell, and then Ctrl+click the right table cell. 
+• From the on-demand table toolbar, click the down arrow to the right of the 
+Horizontal alignment  icon, and then click Center. 
+• Click anywhere on the page below the table, and then from the on-demand toolbar, click Vertical alignment 	, and then click Middle. 
+Next you want to create a title for the cover page. 
+• In the left table cell, click Add, and then click Text item. 
+• In the Text dialog box, type GO Data Warehouse - Revenue Generated, and then click OK. 
+• With the text item still selected, change the font to Arial, 16 pt. 
+• From Toolbox pane, expand LAYOUT, and then drag an Image object into the right table cell. 
+• From the on-demand toolbar, click More, and then click Edit Image URL, ignoring any messages that may appear. 
+• In the Image Picker dialog box, in the URL path beside the Browse button, delete the existing path, and then type http://localhost:88/images/background3.png. 
+• Click OK to close the Image Picker dialog box. 
+If the OK button does not become active, try clearing the URL path and re-entering the http address. 
+• With the image selected, in the Properties pane, under POSITIONING, doubleclick the Size & overflow property. 
+• Set the Width to 75 pixels, the Height to 75 pixels, and then click OK. 
+Run the report and view specific values. 
+• Run the report in HTML. 
+The Prompt page appears showing three value prompts. The second prompt is dependent upon the first prompt. The star icon indicates that this selection is mandatory. 
+• In the Product line prompt, click Golf Equipment. 
+The Product type prompt changes to only include product types in the Golf Equipment product line. 
+• Under Product type, click Irons, and then Ctrl+click Woods. 
+• In the Order method type prompt, click ALL, and then click Finish. 
+The report cover page appears. 
+
+The report renders, filtered by the values selected in the prompts and with a title at the top. 
+Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Use calculations 
+What are calculations? 
+Calculations let you derive additional information from the data source. Create a layout calculation to add information to your report. Create calculated columns based on existing items in the model that uses query calculations. 
+Calculations can be added to a list, crosstab, or chart report, as well as to the body, headers, and footers. Layout calculations can include run-time information such as current date, current time, and user name. 
+Including calculated columns can help provide further insight into your data. You can create a query or layout calculation by inserting a calculation in to your report and then creating the expression in the Expression Editor. 
+Create a calculated column to make a report more meaningful by deriving additional information from the data source. For example, you create an invoice report, and you want to see the total sale amount for each product ordered. Create a calculated column that multiplies the product price by the quantity ordered. 
+If an expression is used in multiple reports, or used by different report authors, ask your modeler to create the expression as a standalone object in the model and include it in the relevant package. 
+Add Date and Time functions 
+Use date and time functions in calculations and filters to query on specific dates and times in your report. Date and Time functions can be used to build dates, modify existing dates or to filter the report for specific dates. 
+A useful date/time function is the extract() function which returns an integer representing the value of datepart (year, month, day, hour, minute, second). 
+Not all data sources support functions the same way. The data modeler can set a quality of service indicator (icon appearing beside some functions) on functions to give a visual clue about the behavior of the functions. Report authors can use the quality of service indicators to determine which functions to use in a report. 
+
+Add string functions 
+Use string functions in calculations and filters in your report to manipulate text data.. 
+Some examples of string functions include: 
+• substring(): A function to return part of a string 
+• trim(): A function that removes specific characters from the beginning or end of a specific text data item 
+• upper(): A function that changes the text returned to be in uppercase 
+• lower(): A function that changes the text returned to be in lowercase 
+String functions can be found under the Common Functions folder, or Vendor Specific Functions folder. For example, if a user entered ‘Golf Equipment ‘(with a space at the end) into the database, the report author would get unexpected results if they queried the database and was doing a comparison against ‘Golf Equipment’ (without a space at the end). This is a real world example where the trim() function should be used to remove trailing spaces before doing a comparison. 
+Display prompt selections in report titles 
+To display the selected prompt option in the report title, add a layout calculation to the report title that returns a different value depending on the prompt option a user selects. 
+Activity: Add calculations to a report 
+
+Create a report that will return values for a specified date. In addition to looking at actual values versus planned values, users want to see a percentage for how much of the planned values was met. The report should also display the date that the report is run. 
+You will accomplish the following: 
+• Create a calculated column. 
+• Add a detail filter. 
+• Format the list data. 
+• Add runtime information. 
+• Overwrite a query expression. 
+Create a calculated column. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the 1 column template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Time: Date 
+• Products: Product line 
+• Sales fact: Revenue, Planned revenue 
+• From the Toolbox tab, expand TEXTUAL, and then drag a Query calculation to the list to make it the last column. 
+The Data item expression dialog box appears. 
+• In the Name field, type Percent of Goal, and then create and validate the following expression: 
+[Revenue]/[Planned revenue] 
+Hint: Drag Revenue and Planned Revenue from the Data items tab. 
+Click OK to close the Data item expression dialog box. 
+This column will show the percentage of revenue achieved for each product line on each day. 
+Add a detail filter. 
+You want the report to only contain data for the first quarter of 2010, which in this example is January through March. 
+• Ensure the List is selected, from the on-demand toolbar, click Filters > Edit Filters, and then click Add. 
+• Click Advanced, and then OK. 
+The Detail filter expression dialog box appears. 
+• Create the following expression: 
+[Date] between _first_of_month(2010-01-01) and _last_of_month (2010-03-31) 
+Hint:  
+• Drag Date from the Data items tab (the second tab at the bottom of the Available Components pane).  
+• Drag _first_of_month and _last_of_month functions from the 
+Business Date/Time Functions folder in the Functions  tab. 
+Data items selected from the Source tab will be calculated and summarized after aggregation, whereas data items selected from the Data Items tab will be calculated and summarized before aggregation. 
+This filter will return dates between January 1 2010 and March 31 2010 (First quarter of 2010). The _first_of_month() function returns the first day of the month in the date expression, while the _last_of_month() function returns the last day of the month in the date expression. You can use any date for the expression as long as it is in the proper format and it contains data. Make sure that there is a space between each function. 
+• Click Validate (the check mark in the green box). 
+• Click OK to close the Detail filter expression dialog box, and then click OK to close the Filters dialog box. 
+Format the list data. 
+• In the work area, click the <Date> list column body, from the on-demand toolbar, click Sort, and then click Ascending. 
+• Click the <Percent of Goal> list column body. 
+• From the on-demand toolbar, click Data format . 
+• In the Format type list, select Percent, for Percentage symbol click the percent symbol %, and then click OK. 
+• With the column still selected, from the on-demand toolbar click Summarize, and then click Calculated. 
+
+Calculated is applied if the data item expression: 
+• contains a summary function 
+• is an if-then-else or case expression that contains a reference to at least a modeled measure in its condition 
+• contains a reference to a model calculation or to a measure that has the Regular Aggregate property set to a value other than Unsupported 
+• contains a reference to at least one data item that has the Rollup Aggregate Function property set to a value other than None 
+Add runtime information. 
+Display the run date of the report under the title of the report. 
+• Delete the Double-click to edit text placeholder text in the report header block. 
+• From the Toolbox tab, drag a Table, with 1 column and 2 rows, into the block. 
+• In the top cell, click Add and then click Text item. 
+• In the Text field, type 2010-First Quarter Sales Figures and Overall Calculated Percent of Goal, and then click OK. 
+• From the on-demand toolbar, set the font size to 14pt. 
+• In the bottom cell, click Add and then click Text item. 
+• In the Text field, type Report run date:, press the spacebar, and then click OK. 
+From the Toolbox tab, under TEXTUAL, drag a Layout calculation to the right of the text item. 
+• Create and validate an AsOfDate () expression. 
+Hint: Drag AsOfDate from the Report Functions folder in the Functions tab. 
+• Click OK. 
+The report header block appears as follows: 
+ 
+• Run the report in HTML. 
+
+The report appears with revenue data sorted by date, including a header at the top that displays the date when the report was run. 
+• Click Bottom to confirm that the report includes all of the months of the first quarter, and the overall calculated percent of goal. 
+• Close the rendered New report tab. 
+Overwrite a query expression. 
+• Double-click the <Percent of Goal> list column body to open the Data item expression dialog box. 
+• Overwrite the current expression by using query items from the Source tab to set the aggregation to that of the original query as follows: 
+[Sales (query)].[Sales fact].[Revenue] / [Sales (query)].[Sales fact].[Planned revenue] 
+Hint: From the Source tab, expand  
+Sales and Marketing (query) > Sales (query). 
+• Validate, and then click OK. 
+
+The Percent of Goal calculation does not match the values from the initial report because the timing of the aggregation is different. 
+• Close the rendered New report tab. 
+• With the <Percent of Goal> list column body still selected, in the Properties pane, under the DATA ITEM section near the bottom of the pane, change the Detail aggregation function to Calculated. 
+• Run the report in HTML. 
+Now the expression returns the same results as the previous expression, when you first ran the report. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+Leave IBM Cognos Analytics open for the next activity. 
+Activity: Display prompt selections in report titles 
+
+Create a report that displays values for each year. You also need to display certain items in uppercase. The report will contain an optional prompt. Add a report title that indicates which option users select in the prompt. It should also indicate if they do not select an option as well. You will use a layout calculation to display the report title. 
+You will accomplish the following: 
+• Edit an expression. 
+• Add an optional parameter. 
+• Display the parameter value in the report title. 
+• Test the prompt. 
+Edit an expression. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the 1 column template, the Team content/Samples/Models/GO data warehouse (query) package, and a Crosstab data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the crosstab: 
+Rows area: 
+• Products: Product line, Product type (nested to the right of Product line) Columns area: 
+• Time: Year 
+Measures area: 
+• Sales fact: Quantity 
+• Click a <#Product type#> crosstab node member on rows, from the on-demand toolbar, click Summarize, and then click Total. 
+• On the crosstab, click Total. 
+• On the Application bar, click Show properties. 
+• In the Properties pane, under TEXT SOURCE, change Source type to Data item value. 
+
+In the Properties pane, under TEXT SOURCE, change Data item value to Product line. 
+• In the crosstab, double-click <#Product line#>. 
+• Update and validate the existing expression to capitalize the query item as follows: 
+upper([Sales (query)].[Products].[Product line]) 
+• Click OK. 
+
+Add an optional parameter. 
+Add an optional filter containing a parameter that lets users specify the query item for which they want to view data. 
+• Select the entire crosstab, from the on-demand toolbar, click Filters, and then Edit Filters. 
+The Filters dialog box appears. 
+• Ensure the Detail Filters tab is selected, click Add, click Advanced, and then click OK. 
+• From the Available Components pane, expand Sales and Marketing (query), Sales (query), and then expand Employee by region. 
+• Create and validate the following expression (validate using Americas):  
+[Sales (query)].[Employee by region].[Branch region]=?Region? 
+• Click OK to close the validation dialog box, and then OK to close the Detail filter expression dialog box. 
+• In the Filters dialog box, with the filter you just added selected, click Optional, and then click OK.  
+You will run this report to test the prompt. 
+Run the report in HTML. 
+• At the prompt, select Americas, and then click OK. 
+
+The report displays data only for the region selected in the prompt. 
+Notice that the Total line caption now reflects the data item that it summarizes and that all of the Product line names are uppercase. 
+• Close the rendered New report tab. 
+Display the parameter value in the report title. 
+To give this report some context, you want the selected region to appear in the report title. If no region is selected, you want the report title to indicate that the data displayed represents quantity sold in all regions. 
+• On the report page, double-click the report title text, type Quantity Sold in, press the spacebar, and then click OK. 
+• Left justify the report title within the block. 
+Next, create a layout calculation to display the prompt option selected in the report title. 
+• Click Toolbox, expand TEXTUAL, and then drag a Layout calculation object to the end of the report title. 
+You will create an expression that specifies that if a parameter value is selected, the layout calculation should show the display value for the selected parameter value. Otherwise, the layout calculation should show All Regions. 
+Create and validate the following expression: 
+if(ParamDisplayValue('Region') <> ' ') then (ParamDisplayValue('Region')) else 'All Regions' 
+Hint: ParamDisplayValue('Region') is created from the Parameter tab  by dragging Region to the Expression Definition. 
+The empty quotes represent no display value. This will be the case when the prompt is optional and the user does not select anything. 
+• Click OK to close the dialog box. 
+Test the prompt. 
+• Run the report in HTML. 
+• On the prompt page, in the Branch region list, click Branch region, and then click OK to run the report. 
+The report title explains that this report contains data about the quantity sold in all regions. 
+
+• Close the rendered report tab, and then run the report in HTML. 
+• On the prompt page, select Central Europe, and then click OK. 
+The report title explains that this report contains data about the quantity sold in Central Europe. 
+• From the Application bar, run the report again and choose a different prompt option. 
+The report title changes to indicate the prompt value chosen. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Customize reports with conditional formatting 
+Conditional formatting can highlight exceptional data, and format areas of the report based on one or more string values, a report condition, or data values. Conditional formatting can help the report author create a single report that end users can customize, through prompts, to provide information specific to their needs. This lets the end user quickly and effectively isolate critical information necessary for timely business decisions. 
+Three steps for conditional formatting 
+There are three steps in creating conditional formatting in a report: 
+• Create a variable 
+• Assign the variable to a report object 
+• Apply formatting to object based on conditional value 
+Create a variable 
+Create variables and values to decide what element of the report will determine the change and the possible outcomes. 
+• Boolean variables are used if there are only two possible outcomes, where the values will be Yes or No. With this variable, you must define the condition. 
+• String variables are used if there is more than one outcome, based on string values you will specify. 
+• Language variables are used when the values are different languages. 
+The string variable's condition does not need to test all possible cases of the language variable to hold all the possible languages. The expression will automatically create an Other category to identify all other values. 
+The variable determines what will change in the report. For example, the report will vary depending on revenue, product line or the language in which the report is run. If you create a language variable, you do not need to define the condition, but you must choose the languages you want to support. 
+Assign the variable to a report object 
+Start by selecting a reporting object in the report layout that you want to add conditional formatting to, such as a column, column header, or report title. This step is performed in Conditional explorer. 
+After you have created your variable, you must define how the report will appear for each value. To do this, select the text or part of the report that will vary, and then apply the variable to it using the Properties pane. 
+• Conditional Styles: Add conditional styles to highlight data in you report, based on set ranges. 
+• Style Variable: Specifies a variable based on which the object can be conditionally styled. 
+• Text Source Variable: Specifies a variable based on which the text can be chosen. 
+• Render Variable: Specifies a variable based on which the object can be conditionally rendered. 
+When you apply the variable, the values for which you can perform conditional report authoring appear. By default, Reporting selects all the values assuming you will format all of them. If you wish to create conditional formatting for only some values, you can deselect the others. 
+If you apply a language variable, an additional value called Other appears by default. 
+When you create a string or report language variable, and create or choose variables for it, an additional value called Other also appears by default. 
+Format based on conditional value 
+Once the report element has been designated as conditional, set the display for that value by modifying the report to appear the way you want it to look if that condition is satisfied. 
+This step is performed in Conditional explorer. 
+This step does not apply when working with a Render Variable. 
+When you select a value in the Condition explorer, the A green outlined message appears stating the variable is set to undefined. This means that conditional formatting is turned on and that all changes you make to the report only apply to the variable you selected. 
+After you have set the display for each value, turn the conditional formatting off by double-clicking (No variable) from the Condition explorer. 
+Conditionally render report objects 
+If objects are not rendered, they do not take up space in the report when it is run. 
+Conditional rendering is useful when your report contains sensitive data or data that may be relevant for some users but not for others. 
+When conditional rendering is applied to a column in a list report, the conditional rendering applies to all portions of the column including the title, the body cells, and header and footer cells. 
+A report can contain explicit data for some users and exclude that data for others. 
+You can also conditionally format one crosstab fact based on another crosstab fact that uses the Conditional Styles dialog box. This allows a fact column to be highlighted based upon the value found in another fact column. 
+You can conditionally format one crosstab measure based on another crosstab measure that uses the Conditional Styles dialog box. 
+
+Activity: Create a multilingual report 
+
+Examine the values for all products to promote those that are the most profitable. This report will be distributed to offices in different countries and will be run in different languages. 
+In this activity, you will accomplish the following: 
+• Create a basic list report. 
+• Create a language variable. 
+• Define the title as conditional text. 
+• Set the display for each value. 
+• Run the report in various languages. 
+Create a basic list report. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the 1 column template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Under Insertable objects, on the Sources tab, expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Products: Product line, Product type 
+• Sales fact: Revenue 
+• Group the <Product line> column, and then summarize the <Revenue> column by Total. 
+• Save the report in My content as Basic Report. 
+• Run the report in HTML to examine the report. 
+A simple list report appears showing totals for each product line. 
+• Close the rendered New report tab. 
+Create a language variable. 
+Apply conditional formatting to allow the header text to appear in the report run language. 
+• From the navigation menu, click Report > Variables , and then drag Report Language Variable to the Variables pane. 
+The Languages dialog box appears. 
+• Scroll through the list to locate and select the check boxes beside all of the English, French, and German languages (there are multiples for each language), and then click OK. 
+All of the languages you selected appear in the Values pane. 
+• In the Values pane, click English, Shift-click English (Zimbabwe), and then underneath the Values list, click Group Values . 
+• Repeat the previous step to group all French languages together. 
+• Repeat the previous step to group all German languages together. 
+There are seventeen English languages, six French, and six German. You selected all of these languages and grouped them together. That way you only have to format the report for three grouped values, rather than for each individual language. 
+The report now has one variable with three grouped values, one for each language in which the report will be run. Because you created a language variable, the expression is created for you. 
+• On the Application bar, click Show properties. 
+• In the Properties pane, under MISCELLANEOUS, in the Name box, replace Report Language1 with Language, and then press Enter. 
+• From the navigation menu, click Report > Pages > Page1. 
+Define the title as conditional text. 
+• Double-click the Text field at the top of the report, in the Text dialog box, type Product Report Title, and then click OK. 
+• Select the header block containing the report title, and then from the on-demand toolbar, click Horizontal alignment, and then left justify the header text. 
+• Click the Text item in the header to select it. 
+• From the on-demand tool bar, click Font, and then change the font Size to 16pt. and the Weight to Bold. 
+• In the Properties pane, under CONDITIONAL, double-click Text source variable. 
+The Text source variable dialog box appears. 
+• From the Variable list, select Language. 
+The Values pane shows the languages you chose, plus an option called Other. The languages are selected by default so that you can use the Conditional state icon to perform conditional authoring for any of these languages. 
+• Click OK. 
+Set the display for each value. 
+• From the Application bar, click the Conditional state icon , and then click English. 
+• Change the title text to Product Report. 
+• Click the Conditional state icon , and then click French. 
+• Change the title text to Rapport sur les produits. 
+• Click the Conditional state icon again, and change the Language to German. 
+• Change the title text to Produktbericht. 
+• Click Conditional state and then click Clear Conditional state. 
+This turns off conditional formatting. 
+In order to run a report in different languages, the data source must be multilingual. Your browser must also be able to support multilingual characters, or else the characters will appear as boxes. 
+Now you can run the report in various languages. 
+Run the report in various languages. 
+• Run the report in HTML. 
+Your report appears in the system language as this is your current default language. The report title appears as you created it for the first variable, if the first language selected matches the system language. You will now run the report in the other languages to see the results. 
+• Close the rendered New report tab. 
+• Click Run options, and then click Show run options. 
+You want to choose a language other than your current default. 
+• Under Language, scroll down to and select French (France), and then click OK. 
+• Run the report in HTML. 
+The report appears in French, including the conditional title you created. 
+
+IBM Cognos Analytics cannot translate the data returned by the query. This must be done as part of data modeling and must be included in the published package. 
+• Close the rendered New report tab. 
+
+Repeat the previous steps to run the report in German (Austria). 
+
+Notice that the order of products is different because the default sorting of the Product lines and Product types is now sorting differently rendered names.  
+• Close the rendered New report tab. 
+• Repeat the previous steps to run the report in English (Zimbabwe). 
+Again, notice that the default sorting causes the report names to appear in a different order because they are translated differently. For example, what appears as Accessoires personnels in French, now appears as Personal Accessories in English. 
+• Close the rendered New report tab. 
+• Click Run options, and then click Show run options. 
+• Under Language, scroll up, select (Default), and then click OK. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Highlight exceptional data and 
+conditionally render a column 
+
+Create a report that displays fact data in different colors depending on value to quickly identify high and low values. Include a conditionally optional description column. 
+In this activity, you will accomplish the following: 
+• Create a list. 
+• Create the conditional variables. 
+• Define the measure as conditional. 
+• Add a Boolean variable. 
+• Run the report. 
+Create a list. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, 
+Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• From the Application bar, ensure that Automatic group and summary behavior for lists is cleared under Manage  > Options > Report. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Products: Product line, Product type, Product description 
+• Retailers: Region 
+• Time: Year  
+• Sales fact: Revenue. 
+Group the <Product line> column and then summarize the <Revenue> column by Total. 
+
+Your report will contain several columns, including one measure (in this example, Revenue). The Product description column will be the query item that will be visible or hidden depending on the end user's choice of output, and the Revenue column will highlight exceptionally high and low values. 
+Create the conditional variables. 
+Create a variable to define revenue as high if it is greater than 1 million, or low if it is less than 500,000. 
+• From the navigation menu, click Report > Variables . 
+• From the Toolbox, drag a String Variable to the Variables pane. 
+Because you are creating a string variable, you must specify the condition on which the measure value will change, and then create values for the possible outcomes. 
+• Create and validate the following expression that will set a variable identifying high and low values based on your data: 
+if ([Query1].[Revenue]>1000000) then ('high') else if 
+([Query1].[Revenue]<500000) then ('low') 
+Hint: You can double-click Revenue in the Available Components pane to add it to the expression as you write it. 
+• Click OK. 
+• Below the Values pane, click Add . 
+• In the Add dialog box, type high, and then click OK. 
+
+Click Add again, type low, and then click OK. 
+The values created in previous steps must be spelled exactly as they are spelled in the expression definition for the variable. 
+• If the properties pane is not visible, then from the Application bar, click Show properties. 
+• With the String1 variable still selected, in the properties pane, under 
+MISCELLANEOUS, in the Name box, change the name to Revenue_high_low, and then press Enter. 
+• Navigate to Page1. 
+Now that you have created a variable and specified its values, you will format the measure cells for each value. 
+Define the measure as conditional. 
+• Click the <Revenue> list column body, and then from the properties pane, under CONDITIONAL, double-click Style variable. 
+The Style variable dialog box appears. 
+• From the Variable list, select the Revenue_high_low variable, and then click OK. 
+The measure cells are now conditionally formatted using the variable you just created. You will now set the display for each value. 
+• From the Application bar, click Conditional state , and then click high. 
+• Ensure that the <Revenue> list column body is still selected, and then from the ondemand toolbar, click Font. 
+• Set Foreground color to Green, set Weight to Bold, and then click OK to close the Font dialog box. 
+• Click Conditional state, and then click low. 
+• Ensure that the <Revenue> list column body is still selected, from the on-demand toolbar, click Font. 
+• Set Foreground color to Red, set Weight to Bold, and then click OK to close the Font dialog box. 
+• Click Conditional state, and then click Clear conditional state to turn the conditional formatting off. 
+Run the report in HTML. 
+The report runs and the conditional formatting has identified exceptionally high values with green font, and exceptionally low values with red font. 
+• Click Page down several times to see additional identified critical values. 
+• Close the rendered New report tab. 
+Add a Boolean variable. 
+A Boolean variable creates a yes or no condition. You will use a Boolean variable to conditionally format the report so that the Product description column only appears if the report is rendered in HTML. 
+• Navigate to Page 1, and then click the <Product description> list column body. 
+• From the on-demand toolbar, click Select Ancestor , and then click List column at the bottom of the list. 
+• In the Properties pane, under CONDITIONAL, double-click the Render variable property. 
+The Render variable dialog box appears. 
+• From the Variable list, select New boolean variable. 
+• In the New variable dialog box, in the Name field, type vProduct_description, and then click OK. 
+The Report expression dialog box appears. 
+• Create and validate the following expression that sets the report output to HTML: 
+ReportOutput ()='HTML' 
+Hint: Under Available Components, click the Functions tab, expand Report Functions, and then double-click ReportOutput to add it to the expression. 
+• Click OK until all dialog boxes are closed. 
+You can now run the report in different formats to test the output. 
+Run the report. 
+
+The report includes the Product description column. 
+• Click the down arrow to the right of the Run button, and then click Run PDF. 
+
+When the report is rendered in PDF format, the optional column is not rendered. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+
+Drill-through definitions 
+Navigate to related data 
+Drill-through access lets users navigate between reports to view related data to help them answer business questions. 
+In IBM Cognos Analytics, using a packaged based drill-through definition, report authors can set up drill-through access to and from reports, queries, advanced queries, and analyses that uses dimensional and relational data sources. 
+It is also possible to set up drill-through access to IBM Cognos Analytics targets from third party sources and to third party targets from Cognos sources. Setting up drillthrough access to and from third-party sources and targets can be accomplished that uses URL requests or by using the Software Development Kit. 
+
+Enhance report layout 
+View the structure of the report 
+To view your report in a different way and see how objects are organized, view the page structure. 
+View the page structure to: 
+• view the entire contents of a report page in a tree structure 
+• move objects quickly from one area of a page to another 
+• modify the object properties 
+• view a complex layout 
+Viewing the page as a tree structure can be useful for locating the objects in a page and troubleshooting problems with nested objects. 
+A complex layout may make it difficult to select, cut, and paste objects in the layout view. Objects are easier to locate in the page structure view. This view can also be helpful if you want to modify an object but are not sure where the object is located within the report structure. Once you know where an object it placed, you can select it and modify its properties.  
+Objects can be changed in either view, depending on your preference. 
+Use Guided report layout 
+Guided report layout helps you create a report more quickly and dynamically by simplifying the process of adding objects to the canvas. 
+
+The above illustration shows Guided report layout functions during the dropping of a measure onto the report canvas. Notice that the shaded 12345 area is a visual indicator to the user that the value being dropped onto the canvas is a measure. It also indicates exactly where that value will be located on the canvas if the user drops it at that instant. 
+Some of the key features included with Guided report layout include: 
+• Visual indicators show where an object is going to be placed before you drop it on to the canvas. 
+• When you drag a measure on to the canvas, you get a summarized text item with a descriptive label and formatting. 
+• When you drag a column that is not a measure on to the canvas, you get a list with a descriptive title. 
+• You can place objects on the left, center, right, top, or bottom of a container with one gesture. 
+• Tables use percentage sizing which ensures that different screen resolutions are supported. 
+• You can resize an object by dragging one of its grippers. 
+Guided report layout is enabled by default. You can disable it by accessing Manage > Options > Report. 
+Guided report layout does not work with active reports. 
+Force page breaks 
+To force page breaks based on a data item, you must associate the page set with a query and then define a grouping structure for the page set. 
+You can add multiple detail pages to a page set. 
+You can also create nested page sets, and can define a master-detail relationship between them to see data in the nested page set that is related to the data in the parent page set. For example, you have a page set that shows pages of product line information. The page set contains a nested page set that shows pages of product type information. 
+You can use a page set to create a report that contains detail pages displaying data for each order method. Each order method type will begin on a new page. 
+A page break can also be created at the same time as a report section is created. 
+Create horizontal pagination 
+Horizontal pagination enables you to span wide reports across multiple PDF pages with the appropriate page number. 
+You can only use horizontal pagination with list and crosstab reports. 
+There are three options for adding horizontal page numbers: 
+• Preset (that uses Number Style) 
+• Custom Number Style 
+• Report Layout Functions 
+Modify the report structure 
+By unlocking the cells, you can add multiple items to a single column to tailor a report to your needs. 
+Unlock cells to manipulate an object’s contents. Once they are unlocked, you can change the text and add objects inside existing objects. This feature is useful for displaying related information in a single column, or for renaming a column. You can add additional rows to a list report to add extra information. You can add additional rows to a list report that uses the Structure menu. 
+Once a new row is added you can merge the cells by selecting one or more cells and then click the Merge cells button. 
+Format objects across a report 
+Format reports quickly and consistently using Cascading Style Sheet (CCS) classes. CSS classes are used in reports and templates. 
+To determine what class an object uses, select the object and view the Classes property. An object also inherits the classes set for its parent objects. 
+Activity: Create a report structured on data items 
+Create a report showing data groupings on separate pages. Design a title page for the report and make changes to the report that uses the structure view. 
+In this activity, you will accomplish the following: 
+• Set the page breaks. 
+• Add a cover page. 
+• Add an image to the cover page. 
+• Modify the report using the structure view. 
+Set the page breaks. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Employee by region: Branch region, Country, Employee name 
+• Sales fact: Revenue. 
+• Click the <Branch region> list column body, Ctrl+click the <Country> list column body, and then from the on-demand toolbar, click Group / Ungroup. 
+• Run the report in HTML. 
+• Click Page down. 
+Different regions appear on the same page. You want each region to display on a different page. 
+• Close the rendered New report tab. 
+• Click the <Branch region> list column body, from the on-demand toolbar, click 
+Section / unsection , and then click Section / unsection from the list. 
+• Click the newly created <Branch region> section header, and then from the ondemand toolbar, click Section / unsection, and then click Set page break. 
+A message appears stating that a new page will be displayed for each value of the section header. 
+• Click OK. 
+• Run the report in HTML, and then page down several times to examine the data placement. 
+
+Different regions are now on separate pages. 
+• Close the rendered New report tab. 
+Add a cover page. 
+• From the navigation menu, click Report > Pages. 
+ 
+• At the right of the navigation menu, click Add . 
+
+• From the Pages menu, click Page. 
+Page2 appears in the structure tree. 
+
+• Drag Page2 to a location just above Page1 under Detail Pages. 
+• If the properties pane is not visible, then from the Application bar, click Show properties. 
+• On the properties pane, under MISCELLANEOUS, change the Name property from Page2 to Cover, and then press Enter. 
+• In the Report page structure, double-click Cover. 
+A new work area appears. 
+• In the center of the new work area, click Add , click Table, set it to 1 column and 3 rows, and then click OK. 
+• Ctrl+click each of the table cells, and then from the on-demand toolbar, click the arrow beside Horizontal alignment, and then click Center. 
+• In the top table cell, click Add, click Text item, in the Text box, type Total Revenue by Sales Representatives, and then click OK. 
+• In the bottom table cell, click Add, click Text item, in the Text box, type Sales Report, and then click OK. 
+• Click the text only (not the cell) of the top cell, and then Ctrl+click the text of the bottom cell. 
+• From the on-demand toolbar, change the font to Arial Black, the font size to 20pt, and the foreground color to Navy. 
+Add an image to the cover page. 
+You will now add an image to the cover page. 
+• From the Toolbox tab, expand LAYOUT. 
+• Drag an Image object to the middle table cell, and then double-click the image icon. 
+• In the Image Picker dialog box, beside the Browse button, delete the existing path and then type http://localhost:88/images/cover1.jpg. 
+If the OK button does not become active, try clearing the URL path and re-entering the http address. 
+• Click OK to add the image and close the Image Picker dialog box. 
+• Click the work area below the table, and then from the toolbar, click the arrow beside Vertical alignment  and then click Middle. 
+• Run the report in HTML. 
+The cover page for the report appears including text and an image. 
+• Click Page down to see the details in the report. 
+• Close the rendered report tab. 
+Modify the report using the structure view. 
+• On the navigation menu, click Report > Pages > Page 1. 
+• From the Application bar, click the Page view list . 
+The list appears as follows: 
+
+• From the list, click Page structure. 
+All of the objects of the report can be reviewed in a tree structure. Here you can quickly move and modify objects within the page of the report. 
+• Expand Page - Page1. 
+You want to view the structure of your list and quickly modify the format of all the list column titles in the report. 
+• Expand Page body, and then expand List. 
+• Expand List columns > List column > List column body > List, and then click List columns title style. 
+
+• In the Properties pane, under FONT & TEXT, double-click the Font property. 
+• Change the font to Arial Black, 12pt, Italic, and then click OK. 
+• On the Application bar, click the Page view list , and then click Page design. 
+The page view returns to Page design mode. The list column titles are changed to reflect the modifications you made to the page structure. 
+• Run the report in HTML, and then click Page down to see the list. 
+
+The list column titles appear with the new font styles. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Create a condensed list report 
+
+Create a detailed contact information list. To reduce the number of columns in the report, you will combine several columns of information into one column. 
+In this activity, you will accomplish the following: 
+• Create the list. 
+• Unlock the cells and condense the report data. 
+Create the list. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Employee by region: Country, City, Employee name, Position name, Work phone, Extension, Email, Date hired. 
+• Click the <Country> list column body, and then from the on-demand toolbar, click Group / Ungroup. 
+• With <Country> selected, from the on-demand toolbar click Section / unsection, and then click Section / unsection from the list. 
+• Run the report in HTML. 
+
+The report data spreads out across the page. You want to condense it so that some of the data appears in a single column. 
+• Close the rendered New report tab. 
+Unlock the cells and condense the report data. 
+• On the Application bar, click Lock Page objects  to unlock the cells of the report. 
+
+Once cells are unlocked, query items can be added directly from the content tabs. 
+• From the Toolbox, drag a Table to the Work phone column, to the right of <Work phone>. 
+The Insert table dialog box appear. 
+• Under Table size, choose 1 column and 3 rows, and then click OK. 
+The results appear as follows: 
+
+• Within the List data container, drag <Work phone> into the first row of the table. Be careful to drag the Text item <Work phone>, not the table cell containing it. 
+• Drag <Email> into the second row, and then <Date hired> into the third row. 
+• Drag <Extension> into the top table cell, to the right of <Work phone>. 
+You can add text in front of the data items, to identify them. 
+• From the Toolbox, drag a Text item to the left of <Work phone>. 
+• In the Text box, type Work phone:, press the spacebar, and then click OK. 
+• Repeat the previous step for Email, and Date hired. 
+• Drag a Text item between <Work phone> and <Extension> in the top table cell, press the spacebar, type ext., press the spacebar, and then click OK. 
+
+again. 
+• Click the Extension column header, Ctrl+click the Email and Date hired column headers, and then press Delete. 
+
+• In the list column, click the Work phone list column title. 
+• On the Application bar, click Show properties, in the Properties pane, under DATA ITEM, in the Label box, type Contact Information, and then press Enter. 
+• Run the report in HTML. 
+
+The contact information is consolidated under a single column. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Use additional report-building techniques 
+Enhance a report design 
+When information runs in horizontal bands, use a block to hold the objects. 
+Reports may have headers and footers. Determine what objects to use when building a report based on the kind of information you want to display and how you want it to appear. If information applies to the entire report and you want it to appear on every page, place it in the header or footer. 
+When information runs vertically, such as text beside an image, use a table to organize the objects. 
+Properties applied to an object will also be applied to any child items. It is best to set styling properties at the highest level to save time and effort. For example, if you set the font type for a list object then all items in the list or added to the list will inherit the same font. Property Inheritance is the passing of parent attributes to child items. Use the Select Ancestor button on the Properties pane title bar to help determine the level at which to apply settings. 
+Avoid fixed size objects because they are rigid and may not work with your overall design. 
+An empty block does not add space between objects. The block must contain an object, or you must specify the padding of the block to use the block for spacing. 
+If objects have borders, use margins to make the objects look spaced apart. 
+Add objects to reports 
+You can format items and objects to change their size, shape, location, and behavior according to your needs. 
+You can use text items to communicate relevant information about the report to its users. 
+You can add a background image to a data frame object like a list or crosstab, a cell in a table, or to the entire page. It is important to be aware that a background image can obscure the data in the report to some degree. 
+You can use tables to assist with the spatial layout of report types and layout objects. Tables can control where objects are placed. Unlike some graphics software, Cognos Analytics - Reporting will not let you place objects anywhere on the work area. 
+Convert a list to a crosstab 
+When you convert a list to a crosstab, the list columns you select become columns and nested columns in the crosstab, and the unselected columns become rows and nested rows. If you have one measure, it becomes the cells of the crosstab. If you have more than one measure, then the measures will appear as columns. 
+Explore reuse 
+Report authors can customize any object in one location and save the customized style for reuse in other reports. You can create and reuse styles for almost any object, other than a visualization. For example, create a style for a header, save it, and then apply it to other headers in your report. 
+To reuse a style, you define a style for one object, save it, and then apply the style to another object of the same type. For more information, see Reusing a style from another object in the product documentation. 
+If you reuse an object that contains other objects, you can replace the child objects with a different object to customize your report. To change the contents of a reused object, you must override the child object that uses the Properties pane. 
+Instead of creating new layout components (such as page headers) for each report, you can create an object in one report and then reuse it in different reports. Reusing layout components saves you time and lets you apply standard company formatting to multiple reports. 
+By default, reused objects are automatically updated each time the report is run. This means that when you open or run a report containing a reused object, if the object has been changed in the source report, this change will automatically be applied in your report. 
+If you want a reused object to be updated manually instead of automatically, in the report where the object is reused, select the object, and then in the Properties pane, change the Embed property from Reference to Copy. 
+When you reuse a layout object in a different report, you can override child objects within this object (such as a text item in a page header object) if the child objects have been named in the source report. 
+Shared objects are stored in the layout component cache. The cache contains the definitions of the shared objects. When you open a report that contains layout component reference objects, the report(s) containing the shared layout objects is opened and the definitions are copied into the Reporting cache. Object names cannot contain white space and must begin with a letter. When you override child objects, you can replace the child object with any other object, not just an object of the same type. 
+For example, if the child object is a text item, you can replace it with an image. 
+Activity: Section a report and reuse objects 
+
+Create a sectioned list report and add some descriptive information to it. The report must include a title on each page describing the contents of the report, and information about whom to contact if users have any questions. 
+In this activity, you will accomplish the following: 
+• Create the list report. 
+• Section the list and convert it to a crosstab. 
+• Create a page header and footer. 
+• Create a unique header style. 
+• Specify unique object names. 
+• Reuse the header block. 
+Create the list report. 
+• Ensure you are logged into IBM Cognos Analytics (localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, 
+Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Employee by region: Country 
+• Products: Product line 
+• Time: Year 
+• Sales fact: Revenue 
+• Summarize <Revenue> by Total. 
+• Run the report in HTML. 
+A simple list report appears. The report runs as expected. There is one Overall - Total at the very bottom of the report. 
+• Close the rendered New report tab. 
+Section the list and convert it to a crosstab. 
+• Click the <Country> list column body, from the on-demand toolbar, click Section / unsection, and then click Section / unsection from the list. 
+• Run the report in HTML. 
+The report is sectioned so that separate lists appear for each country. However, it can be difficult to interpret. There is still only one total at the very bottom of the report, even though the data is sectioned by Country. 
+• Close the rendered New report tab. 
+• Click the <Year> list column body, from the on-demand toolbar, click More, and then click Pivot List to Crosstab from the list. (Hint: You may want to close the properties pane so you can view the More icon.) 
+• Run the report in HTML. 
+
+Because you selected Year before you converted the list into a crosstab, years now appears as columns. Product line appears on rows, and Revenue, because it can be aggregated, appears as measures on the report. You can now interpret the data more quickly. 
+• Close the rendered New report tab. 
+Create a page header and footer. 
+• Click to the right of the crosstab data container. 
+• From the on-demand toolbar, click More, point to Headers & footers, and then click Page header & footer. 
+The Page header & footer dialog box appears. 
+• Select the Header and Footer check boxes, and then click OK. 
+• In the Header, click Add, and then click Block. 
+• From the Toolbox, drag a Text item into the Block object in the Page header. 
+• In the Text dialog box, type Product Line Sales by Year, and then click OK. 
+Create a unique header style. 
+You will format the objects that you added to the header. 
+• With the header text still selected, from the on-demand toolbar, click Font. 
+• Change the font to Arial, 16pt, Bold, and then a Foreground color of White. 
+• Click OK to close all open dialog boxes. 
+• Select the entire header block, from the on-demand toolbar, click the down arrow next to Background color, and then from the Basic colors tab, click Teal. 
+The report contains a header with the title that you specified. It has been formatted according to the properties you have set. 
+You now want to reuse the objects that you created and formatted to avoid repeating steps in building the footer. 
+Specify unique object names. 
+• On the Application bar, click Show properties. 
+• Ensure the header block is selected, in the Properties pane, under MISCELLANEOUS, in the Name property, type Title Block, and then press Enter. 
+• Click the header Text item, in the Properties pane, under MISCELLANEOUS, in the Name property, type Title Text, and then press Enter. 
+If you try to assign a name that is not unique, Reporting displays a warning message informing you that the name must be unique. 
+If you select an element of the report, such as a column in a list, and want to deselect it, press the Esc key on your keyboard. 
+Reuse the header block. 
+• From the Toolbox, expand the ADVANCED section, and then drag a Layout component reference object into the footer. 
+The Component reference dialog box appears. 
+To reuse an object in the footer, you need to specify the object to be referenced. You can choose from the two objects to which you have previously assigned names, as well as the list containing the crosstab. In this case, you will select the block object because it also contains the text item object. 
+• Under Available components to reference, click Title Block, and then click OK. 
+
+The footer now contains the same object and formatting as the header. 
+• Click the text in the footer. 
+In the Properties pane, you can only select the layout component reference object and not the block or text item objects individually. This is because it is referencing the block object in the header. Remember, the block object in the header also contains the text item object. 
+You want to change the text in the footer to contain contact information. 
+• In the Properties pane, click Overrides, and then click the ellipsis. 
+• In the Overrides dialog box, select the Title Text check box, and then click OK. 
+The layout component reference object in the footer no longer contains text. Only the referenced block object remains. 
+• Drag a Text item object into the component override area of the footer block, type Please contact the Sales Manager for more details, and then click OK. 
+• Click the Text item object in the footer, and then change the font to Arial 12pt, Bold, and Foreground color of White. 
+
+Click OK to close the Foreground Color dialog box, and then click OK to close the Font dialog box. 
+• Run the report in HTML, and then scroll to the bottom of the page to view the footer. 
+
+Both the header and footer contain a teal block with white font. 
+This is a simplified example of reusing report objects. This technique might be best for reusing an object with numerous format properties applied. 
+You can also reuse objects between different reports. 
+• Close the rendered New report tab. 
+• From the Switcher menu list, remove the current report without saving it. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Reuse layout components in a different report 
+
+To save time when creating new reports, create one report containing a standard page header that can be used in many reports, and then, create one report that will reuse this page header. 
+In this activity, you will accomplish the following: 
+• Create a header to be reused in other reports. 
+• Add additional details to the header. 
+• Reuse the standard page header. 
+• Add data and format the report. 
+• Modify the shared page header. 
+• Manually update the shared page header. 
+Create a header to be reused in other reports. 
+• Ensure you are logged into IBM Cognos Analytics (http://localhost:9300/bi) as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the Blank template, and the 
+Team content/Samples/Models/GO data warehouse (query) package. 
+• In the work area, click Add, and then click Table 
+• Create a table with 3 columns and 1 row. 
+Because you want to reuse this table as a page header in other reports, you will name the table object. 
+• Click the Container selector in the upper left cell, to select the entire table. 
+• On the Application bar, click Show properties if necessary to display the properties. 
+• In the properties pane, under MISCELLANEOUS, in the Name property, type StandardPageHeader, and then press Enter. 
+You want to add your company logo to the left side of the page header. 
+• Under Insertable objects, click Toolbox, expand LAYOUT, and then drag an Image object to the left cell of the table. 
+• With the image selected, in the Properties pane, under URL SOURCE, doubleclick the URL property. 
+In the Image Picker dialog box, beside the Browse button, delete the existing path, type http://localhost:88/images/go_logo_small.jpg, and then click OK. 
+If the OK button does not become active, try clearing the URL path and re-entering the http address. 
+A graphic now appears in the first table cell. 
+You want to add a text item in the middle of the page header that can be used to add a report title. 
+• From the Toolbox tab, drag a Text item to the center cell of the table, and then click OK to close the Text dialog box without adding any text. 
+You will not specify the text to be used yet, because this will be different for each report. You will name this text object so that it can be overridden when the page header is reused in other reports. 
+• With the new Text item selected, in the Properties pane, under 
+MISCELLANEOUS, for the Name property type ReportTitle, and then press Enter. 
+Add details to the header. 
+You want to add date and time information to the report header. 
+• In the right table cell, click Add, and then click Table. 
+• Set Number of columns to 1, Number of rows to 2, and then click OK. 
+• From the Toolbox, from the TEXTUAL section, drag a Layout calculation object to the top cell of the table you added in the previous step. 
+• In the Report expression dialog box, click the Functions  tab, expand Report Functions, and then drag AsOfDate to the Expression Definition pane. 
+• Validate the expression, and then click OK to close the Report expression dialog box. 
+You want to add a time stamp, to appear in the bottom-right corner of the page header. 
+• From the Toolbox, drag a second Layout calculation object to the bottom cell of the table you added previously. 
+• Click the Functions tab, expand Report Functions, and then drag AsOfTime to the Expression Definition pane. 
+• Validate the expression, and then click OK to close the Report expression dialog box. 
+
+On the Application bar, click Save. 
+• Navigate to My content, in the Save as box type Layout Library, and then click Save. 
+• From the Switcher menu list, leave the current report open, and click the 
+Welcome page  to return to it. 
+Reuse the standard page header. 
+• Create a new report that uses the Blank template, the Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Under Insertable objects, click the Toolbox, and then  drag a Block above the list header area. 
+
+• From Toolbox/ADVANCED section, drag a Layout component reference object to the Block. 
+• In the Component reference dialog box, select the Another report radio button, click the ellipsis, and then navigate to My content. 
+• Click Layout Library, and then click Open. 
+• Under Available components to reference, click StandardPageHeader, and then click OK. 
+The page header from the Layout Library report appears. You will customize the report. 
+• In the header, click the Layout Component Reference object. 
+• From the Application bar, click Show properties. 
+• In the Properties pane, under GENERAL, double-click the Overrides property. 
+The Overrides dialog box appears. Because you gave the report title text object a distinct name, you can now override its contents in the shared page header. 
+Select the ReportTitle check box, and then click OK. 
+• From the Toolbox, drag a Text item to the component override area of the center cell of the header. 
+• In the Text dialog box, Quantity by Order Method, and then click OK. 
+• With the Text item still selected, from the on-demand toolbar, change the font to Arial, and the size to 22 pt. 
+
+Add data and format the report. 
+• Select the list, to put it in focus. 
+• From the Sources tab, expand the Sales and Marketing (query) folder, and then expand the Sales (query) namespace. 
+• Add the following query items to the list: 
+• Order method: Order method type 
+• Sales fact: Quantity 
+• Save the report to the My content folder as Quantity by Order Method. 
+Run the report in HTML. 
+
+The header you created in the Layout Library report displays the title that you added to this report. 
+• Close the rendered New report tab. 
+Modify the shared page header. 
+• In the Page header of the list report, click the Layout component reference object (the entire block). 
+In the Properties pane, the Embed property is set to Reference. This means any changes made to the shared page header in the Layout Library source report will be automatically applied in this report. You will now modify the shared page header in the source report. 
+• On the Application bar, expand the Switcher menu list. 
+• Click the Layout Library report to open it. 
+• In the Page header, click <%AsOfTime()%>, and then press Delete. 
+• On the Application bar, click Save. 
+• Expand the Switcher menu list. 
+• Click the Quantity by Order Method report to open it, and then run the report in HTML. 
+The change that you made to the page header in the source report has automatically been applied to this shared page header, as seen in the top right corner. The AsOfTime is no longer there. 
+• Close the rendered New report tab. 
+
+Manually update the shared page header. 
+You decide you do not want changes to the page header in this report to be applied automatically when the header changes in the source (Layout Library) report. 
+• In the current Quantity by Order Method report, in the page header, click the Layout component reference object. 
+• In the Properties pane, under GENERAL, change the Embed property to Copy. 
+• Save the report. 
+To ensure that the changes you make to the reports are applied properly, you will close and reopen the reports. 
+• Remove the Layout Library report from the Switcher menu list. 
+• On the Applications bar, click the Edit button to take the report out of edit mode. 
+• From the Side bar, click My content, and then beside the Layout Library report, click More, and then click Edit report. 
+The Page header appears as follows: 
+ 
+• In the left cell of the Page header, drag the Image object to the right of the center cell that contains the Text item so that they switch places. 
+ 
+• Save the report. 
+Remove the Quantity by Order Method report from the Switcher menu list, and then open it from My content on the Welcome page. 
+
+Although you switched the order of the image and text objects in the source report, this change is not reflected in the page header in this report because you changed the Embed property to Copy. To make the page header in the target report consistent with the standard page header you created in the Layout Library report, you will now manually update the shared page header. 
+• Ensure the report is in Edit mode. (Hint: The Insertable objects are either visible or its tab  appears in the side bar.) If it is not in Edit mode, then on the 
+Applications bar, click Edit . 
+• In the Page header, click the Layout component reference object, from the ondemand toolbar click More, and then Update Component Copy. 
+
+The header is updated to reflect the changes made in the Layout Library source report, with the title on the left and the graphic in the middle. 
+• Save the report. 
+• Remove all reports from the Switcher menu list. 
+• Leave IBM Cognos Analytics open for the next activity. 
+Activity: Explore reports that contain no data 
+
+Create a report with three pages showing different methods of handling no data being returned. The first page shows default data handling, the second page will not display when the list is empty, and the third page will generate a custom message to replace the empty container. 
+In this activity, you will accomplish the following: 
+• Create a list and a crosstab. 
+• Modify the layout. 
+• Add filters. 
+• Create additional pages. 
+• Configure a page to not display when the list is empty. 
+• Configure a page with a custom No Data Handler. 
+• Add a prompt page. 
+• Test the report configurations. 
+Create a list and a crosstab. 
+• Ensure you are logged into IBM Cognos Analytics as Frank Bretton (brettonf/Education1). 
+• Create a new report that uses the 1 column template, Team content/Samples/Models/GO data warehouse (query) package, and a List data container. 
+• Expand Sales and Marketing (query) > Sales (query). 
+• Add the following query items to the list: 
+• Products: Product line 
+• Time: Year 
+• Sales fact: Revenue 
+• Click the work area (anywhere outside the list), from the on-demand tool bar, click the arrow beside Vertical alignment, and then click Top. 
+• Under Insertable objects, click the Toolbox, and then drag a Crosstab reporting object to the right of the list. 
+On the Object and Query name dialog box, from the Query Name list, click Query1, and then click OK. 
+This allows the crosstab to use the same query items as the list. 
+• Under Insertable objects, click the Data items tab , and then add the following query items and measure to the crosstab: 
+• Rows: Year 
+• Columns: Product line 
+• Measures: Revenue 
+• Under Insertable objects, click the Toolbox, and then drag a Table on to the work area below the crosstab. 
+• Clear the Maximize width checkbox, and then click OK to accept the default size of 2 columns and 1 row. 
+• Click inside the left table cell (but not the Add icon). 
+• On the Application bar, click Show properties, and then in the properties pane, under BOX, double-click Padding. 
+• In the Right padding box, type 10, and then click OK. 
+
+The report layout contains an empty header, a list and a crosstab containing the same data, a table, and a footer. 
+Modify the layout. 
+• Click the List Container Selector, and then drag the list into the left table cell. 
+• Click the Crosstab Container Selector, and then drag the crosstab into the right table cell. 
+• Click inside the now empty container on the left where the list used to reside, but do not click the Add icon. 
+
+• Press Delete to delete this container, and on the Delete cell dialog box, ensure that Delete the entire column is selected, and then click OK. 
+• From the Toolbox tab, drag a Text item to the left of the list, but within the left table cell. 
+• Type List: and then click OK. 
+• From the Toolbox tab, drag a Text Item to the left of the crosstab, within the right table cell. 
+• Type Crosstab: and then click OK. 
+• Click below the crosstab within the right table cell, from the on-demand toolbar, click the arrow beside Vertical Alignment, and then click Top. 
+Double-click the text in the header, type Page 1 - Default Behavior, and then click OK. 
+• Select the Block containing the header text, and then left justify the text. 
+
+Both reporting objects are linked to Query1, so only one set of filters is needed. 
+• Click anywhere in the list, from the on-demand toolbar, click Filters, and then click Edit Filters. 
+• Click Add, click Advanced, and then click OK. 
+The Detail filter expression dialog box appears. 
+• Create the following expression: 
+[Year] =?pyear? 
+• Validate the expression using 2011. 
+• Click OK to close the Detail filter expression dialog box. 
+• Create another detail filter expression as follows:  
+[Product line]=?ppline? 
+• Validate the expression using Camping Equipment. 
+• Click OK to close the Detail filter expression dialog box. 
+• Click OK to close the Filters dialog box. 
+Create additional pages. 
+• On the navigation menu, click Report > Pages, and in the middle pane, right-click Page1, and then click Copy. 
+• In the same pane, right-click below Page1, and then click Paste to create Page2. 
+• Repeat the previous step to create Page3. 
+The results appear as follows: 
+
+Configure a page to not display when the list is empty. 
+You do not want Page2 to render when the list is empty. 
+• Double-click Page2, and then double-click the text in the Page header to edit the text. 
+• Type Page 2 - Do Not Render Page if No Data is Returned in the List, and then click OK. 
+• Click the List Container Selector  to select the entire list. 
+• From the properties pane, under GENERAL, set the Render page when empty property to No. 
+Configure a page with a custom No Data Handler. 
+You want to display a custom message when the list or crosstab is empty. 
+• On the navigation menu, click Report > Pages, and in the Pages pane, double-click Page 3. 
+• Double-click the text in the Page header, and then update the text to:  
+Page 3 - Show Custom Message When No Data is Returned. 
+• Click OK. 
+
+• Click the List Container Selector  to select the entire list. 
+• From the properties pane, under CONDITIONAL, double-click the  No data contents property. 
+• Select Content specified in the No data tab, and then click OK. 
+The No Data Contents property specifies whether to show the No Data Contents tab for the selected query frame. When set to Yes, you can specify on this tab what to show when there is no data. When set to No, the tab is hidden and the query frame reverts to the default behavior. 
+
+The list now appears with a new No Contents Data tab. No Data Available is the default message that appears if the list has no content. You want to customize this message. 
+• Double-click the object showing No Data Available, update the text to List contains no data., and then click OK. 
+• Select the Text item, and then change the font to Arial Black, 12pt, with a Foreground Color of Blue. 
+• Click the Crosstab Container Selector  to select the entire crosstab. 
+• From the Property pane, under CONDITIONAL, double-click the No data contents property. 
+• Select Content specified in the No data tab, and then click OK. 
+• In the Crosstab, double-click the object showing No Data Available, update the text to Crosstab contains no data., and then click OK. 
+• Select the Text item, and then change the font to Arial Black, 12pt, with a Foreground Color of Blue. 
+Add a prompt page. 
+• On the navigation menu, click Report > Prompt pages. 
+• From the Toolbox, drag a Page object to the center Prompt pages pane, and then double-click Prompt page1. 
+• Add a Table with 2 columns and 2 rows to the work area. 
+• Add a Text item to the top left cell, type Select a Product Line:, press the space bar, and then click OK. 
+• Add a Text item to the bottom left cell, type Select a Year:, press the space bar, and then click OK. 
+• Expand PROMPTING, and then insert a Value prompt in the top right cell. 
+• Select Use existing parameter, select ppline from the list, click Next, and then click Finish. 
+• Insert a Value prompt in the bottom right cell. 
+• Select Use existing parameter, select pyear from the list, click Next, and then click Finish. 
+• Click the top left cell. 
+• In the Properties window, under POSITIONING, double-click Size & overflow. 
+• Set the Width to 150, and then click OK. 
+Test the report configurations. 
+• Run the report in HTML. 
+• When prompted, next to Select a Product Line, select Camping Equipment, next to Select a Year, select 2010, and then click Finish. 
+The result appears as follows: 
+
+Since all of the queries in this report are filtered by the same parameters, all lists and crosstabs on the three report pages should look the same when data is returned. The page numbers refer to the pages in Page Explorer and not in the HTML view. 
+• Click Page down to see the Page 2 - Do Not Render Page if No Data is page. 
+The report appears the same as Page 1 except for the header which is customized for Page 2. 
+• Click Page down to see the Page 3 - Show Custom Message When No Data is Returned page. 
+The report appears the same as Pages 1 and 2 except for the header which is customized for Page 3. 
+With the current prompt selections, all three pages appear with a list and crosstab. 
+• On the Application bar, click Run to run the report again. 
+• When prompted, select Mountaineering Equipment, select 2010, and then click Finish. 
+Notice how the individual pages are affected in the report since there is no data for 2010 for the product line Mountaineering Equipment. 
+The first page shows default behavior for the list and crosstab when there is no data returned. Both the list and crosstab are replaced with the default message of No Data Available. 
+
+• Click Page down. 
+Notice that the Page 2 - Do Not Render Page if No Data is Returned in the List page did not display at all. This list contains no data and the list property Render page when empty is set to No, so the page did not render. 
+You are taken directly to the Page 3 - Show Custom Message When No Data is Returned page. Both the list and crosstab are showing the custom message you created when no data is returned. 
+ 
+• Close the rendered New report tab. 
+• On the Application bar, sign out without saving any report. 
+• Close the Web browser. 
+ 
